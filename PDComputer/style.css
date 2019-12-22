@@ -1,0 +1,375 @@
+.monitor {
+    position: absolute;
+    background: #3479d2;
+    width: 73vw;
+    height: 42vw;
+    left: 9vw;
+    top: 4vw;
+    border: 0.5vw solid #000;
+    border-radius: 0.5vw;
+}
+
+.downbar {
+    position: absolute;
+    width: 100.5%;
+    bottom: -0.25vw;
+    background: #000;
+    height: 2vw;
+    left: -0.25vw;
+}
+
+.logo {
+    color: #fff;
+    text-align: center;
+    font-size: 1vw;
+    line-height: 2vw;
+    font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.punkt1 {}
+
+.punkt2 {}
+
+.punkt3 {}
+
+.punkt4 {}
+
+.turn {}
+
+
+/* Desktop */
+
+.screen {
+    position: relative;
+    font-family: verdana;
+    background: url("windows.jpg") center/cover no-repeat #0c8dea;
+}
+
+.screen .taskbar {
+    position: absolute;
+    display: flex;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.screen .taskbar .main-section {
+    height: 100%;
+    flex-grow: 1;
+    background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #333 100%) center/cover no-repeat;
+}
+
+.screen .taskbar .main-section .start-button {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    color: white;
+    font-style: italic;
+    padding: 5px 25px 5px 15px;
+    text-shadow: 1px 1px 1px #333;
+    border-radius: 0px 10px 15px 0px;
+    border: none;
+    transform: skewX(-3deg);
+    left: -5px;
+    box-shadow: 0px 5px 10px #79ce71 inset;
+    background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover no-repeat;
+    cursor: pointer;
+}
+
+.screen .taskbar .main-section .start-button::before {
+    content: '';
+    background: url("https://www.ikmz.europa-uni.de/de/_bilder_ikmz_sammelordner/www_fancyicons_com_for_free/windows_xp_190pix.png") center/cover no-repeat;
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    top: 1px;
+    transform: skewX(3deg);
+    -webkit-filter: drop-shadow(1px 1px 1px #333);
+}
+
+.screen .taskbar .main-section .start-menu {
+    display: none;
+    position: absolute;
+    background-color: #0c8dea;
+    width: 380px;
+    height: 550px;
+    left: 0%;
+    bottom: 100%;
+    z-index: -50;
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 2px 6px 10px #333, -2px 0px 5px rgba(20, 20, 20, 0.6) inset, 2px 0px 3px #7fbce8 inset;
+    overflow: hidden;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-header {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    box-shadow: 3px 2px 3px #7fbce8 inset;
+    background: linear-gradient(to bottom, #245edb 0%, #0c8dea 100%);
+    padding: 8px 0px 7px 8px;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-header .account-image-wrapper {
+    background-color: white;
+    border-radius: 5px;
+    padding: 2px;
+    height: 52px;
+    display: inline-block;
+    box-shadow: 2px 2px 4px #333;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-header .account-name {
+    display: inline-block;
+    margin: 0;
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: 10px;
+    text-shadow: 0px 0px 3px #555;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body {
+    position: relative;
+    display: flex;
+    height: 21vw;
+    background-color: white;
+    border: 1px solid #0c8dea;
+    margin: 0 1px;
+    overflow: hidden;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body::before {
+    content: '';
+    position: absolute;
+    top: -7.5px;
+    left: 10%;
+    width: 80%;
+    height: 5px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 5px #e88f0b;
+    z-index: 10;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-item>* {
+    display: inline-block;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-item .icon {
+    height: 30px;
+    width: 30px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-item .label {
+    margin-left: 5px;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-item .label .intent {
+    font-weight: bold;
+    color: #373738;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-item .label .program {
+    color: gray;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-item:hover {
+    background-color: #3d64bd;
+    color: white;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-item:hover .label {
+    color: white;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .divider {
+    margin: 5px 0px;
+    height: 1px;
+    background: linear-gradient(to right, white 0%, #d3d3c8 50%, white 100%) center/cover no-repeat;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    height: 20.25vw;
+    width: 50%;
+    padding: 8px;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .start-menu-item.intent-item .label .intent {
+    font-weight: bold;
+    color: #373738;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .start-menu-item.intent-item .label .program {
+    color: gray;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .start-menu-item.intent-item:hover .label .intent,
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .start-menu-item.intent-item:hover .label .program {
+    color: inherit;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .start-menu-item.favorite-item .label {
+    color: #373738;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .start-menu-item.favorite-item:hover .label {
+    color: white;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .all-programs {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 8.25vw;
+    padding: 0px 8px 8px 8px;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .all-programs .start-menu-item.all-programs-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: #373738;
+    padding: 5px 0px;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .all-programs .start-menu-item.all-programs-button::after {
+    content: '';
+    background: url("https://dl.dropboxusercontent.com/u/19745853/Win%20XP%20icons/246.ico") center/contain no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-favorites .all-programs .start-menu-item.all-programs-button:hover {
+    color: white;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-shortcuts {
+    display: inline-flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    padding: 8px;
+    background: #d3e5fa;
+    border-left: 1px solid #95bdee;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-shortcuts .start-menu-item .icon {
+    width: 25px;
+    height: 25px;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-shortcuts .start-menu-item .label {
+    color: #29356c;
+    font-size: 10px;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-shortcuts .start-menu-item:hover .label {
+    color: white;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-shortcuts .start-menu-item.my-item .label {
+    font-weight: bold;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-shortcuts .start-menu-item.my-item:hover .label {
+    color: white;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-body .start-menu-shortcuts .divider {
+    background: linear-gradient(to right, transparent 0%, #aebad6 50%, transparent 100%) center/cover no-repeat;
+}
+
+.screen .taskbar .main-section .start-menu .start-menu-footer {
+    height: 43px;
+    background: linear-gradient(to top, #245edb 0%, #0c8dea 100%);
+    box-shadow: -2px -2px 5px rgba(20, 20, 20, 0.6) inset;
+}
+
+.screen .taskbar .main-section #start-menu-active {
+    display: none;
+}
+
+.screen .taskbar .main-section #start-menu-active:checked~.start-button {
+    box-shadow: 0px 0px 15px #333 inset;
+}
+
+.screen .taskbar .main-section #start-menu-active:checked~.start-menu {
+    display: block;
+}
+
+.container {
+    padding: 0vw;
+    height: 100%;
+    text-align: center;
+    line-height: 0vw;
+}
+
+.container .screen {
+    width: 100%;
+    height: 96%;
+    border-radius: 0.1vw;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+    line-height: normal;
+    left: 0vw;
+    top: 0vw;
+}
+
+.account-image-wrapper img {
+    
+width: 3.45vw;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: SegoeUI;
+    src: local("Segoe UI Light"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff2) format("woff2"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.woff) format("woff"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/light/latest.ttf) format("truetype");
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: SegoeUI;
+    src: local("Segoe UI Semilight"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff2) format("woff2"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.woff) format("woff"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semilight/latest.ttf) format("truetype");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: SegoeUI;
+    src: local("Segoe UI"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff2) format("woff2"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.woff) format("woff"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/normal/latest.ttf) format("truetype");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: SegoeUI;
+    src: local("Segoe UI Bold"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff2) format("woff2"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.woff) format("woff"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/bold/latest.ttf) format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: SegoeUI;
+    src: local("Segoe UI Semibold"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff2) format("woff2"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.woff) format("woff"), url(//c.s-microsoft.com/static/fonts/segoe-ui/west-european/semibold/latest.ttf) format("truetype");
+    font-weight: 700;
+}

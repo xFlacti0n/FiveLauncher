@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+
+<div class="item">
+    <div class="timer">15</div>
+    <div class="undertimer">Sekunden</div>
+    <svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+      <circle id="circle" class="circle-animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#00ec90" fill="none"/>
+    </svg>
+</div>
+<div class="item" style="display: none;">
+  <div class="timer">15</div>
+  <canvas id="canvas"  width="160" height="160"></canvas>  
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

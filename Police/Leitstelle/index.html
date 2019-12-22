@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <base target="_self">
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .iframe {
+        margin-top: 74px;
+        z-index: 1000;
+        position: absolute;
+        left: 14px;
+        top: 8px;
+        width: 1886px;
+        height: 925px;
+      }
+      .screen {
+        background: url('./Bildschirm.png');
+        width: 1920px;
+        height: 1080px;
+        z-index: 0;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background-size: cover;
+      }
+      .url {
+        position: absolute;
+        top: 38px;
+        left: 35px;
+        color: black;
+      }
+      .close {
+        width: 35px;
+        height: 35px;
+        z-index: 1100;
+        position: absolute;
+        right: 31px;
+        top: 30px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe src="localhost" class="iframe" id="iframe" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts"></iframe>
+    <div class="screen"></div>
+    <div class="url" id="url">https://akten.intranet.lspd</div>
+    <div class="close" id="closebutton"></div>
+
+    <script type="text/javascript">
+      window.onkeydown = function (e) {
+        var code = e.keyCode ? e.keyCode : e.which;
+        if (code === "F9" || code === 120) {
+          mp.trigger('client:police:closeLeitstelle');
+        }
+      };
+      document.getElementById('closebutton').addEventListener('click', function () {
+        mp.trigger('client:police:closeLeitstelle');
+      });
+      function changeLink(link) {
+        document.getElementById("iframe").src = link;
+      }
+    </script>
+  </body>
+</html>
