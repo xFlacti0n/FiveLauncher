@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1250">
+    <meta name="generator" content="PSPad editor, www.pspad.com">
+    <title>RageLife Inventory</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: RosewellScriptDemo;
+            src: url(RosewellScriptDemo.ttf);
+        }
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .wrapper {
+            width: 20%;
+            height: auto;
+            position: absolute;
+            top: 15%;
+            right: -500px;
+            color: white;
+            border: 6px solid rgba(12, 12, 12, 0.4);
+            font-family: 'Courier New';
+        }
+        .row {
+            width: 100%;
+            height: auto;
+        }
+        .menu-header {
+            background-image: url('header.png');
+        }
+        .menu-header-inner {
+            width: 100%;
+            height: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: rgba(69, 69, 69, 0.3);
+            color: white;
+            font-family: RosewellScriptDemo;
+            font-size: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .menu-wrapper {
+            background-color: rgba(28, 28, 28, 0.8);
+        }
+        .menu-item {
+            border-top: 1px solid rgb(0, 0, 0);
+            display: none;
+        }
+        .menu-item.visible {
+            display: block;
+        }
+        .menu-item-inner {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 18px;
+            padding-left: 10px;
+            font-family: 'Roboto';
+            font-weight: bold;
+        }
+        .active {
+            color: black;
+            background-color: rgb(255, 255, 255);
+        }
+
+        
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="row menu-header">
+            <div class="menu-header-inner" id="menuHeader">Menü</div>
+        </div>
+        <div class="row menu-wrapper" id="menuItemWrapper">
+        </div>
+    </div>
+    <script>
+        let tr = 'none';
+        HTMLCollection.prototype.forEach = Array.prototype.forEach;
+        NodeList.prototype.forEach = Array.prototype.forEach;
+        function setTrigger(name) {
+            tr = name;
+        }
+        function setMenuTitle(title) {
+            document.getElementById("menuHeader").innerHTML = title;
+        }
+        function addChild(nodeTitle) {
+            var node = document.createElement("div");
+            node.classList.add("row");
+            node.classList.add("menu-item");
+            node.innerHTML = "<div class=\"menu-item-inner\">" + nodeTitle + "</div>";
+            document.getElementById("menuItemWrapper").appendChild(node);
+        }
+        function activateFirst() {
+            document.getElementById("menuItemWrapper").firstElementChild.classList.add("active");
+            var i = 1;
+            var children = document.getElementById("menuItemWrapper").children;
+            children.forEach(function(child) {
+                if (i <= 11) {
+                    child.classList.add("visible");
+                }
+                i++;
+            });
+        }
+        function slider(toggle) {
+            if (toggle == "in") {
+                $('.wrapper').animate({
+                    right: '30px'
+                }, 1);
+            } else {
+                $('.wrapper').animate({
+                    right: '-500px'
+                }, 1);
+            }
+        }
+        function updateVisibles() {
+            var DOMchildren = document.getElementById("menuItemWrapper").children;
+            var currentActive = document.getElementsByClassName("active")[0];
+            var currentActiveIndex = Array.prototype.indexOf.call(currentActive.parentNode.children,currentActive);
+
+            if ((currentActiveIndex >= 12 && currentActiveIndex <= (DOMchildren.length - 12)) ||
+                 currentActiveIndex == 0 ||
+                 currentActiveIndex == (DOMchildren.length - 1) ||
+                 DOMchildren.length <= 22) {
+
+                DOMchildren.forEach(function(DOMchild) {
+                    DOMchild.classList.remove("visible");
+                });
+                currentActive.classList.add("visible");
+
+                var i;
+                var c;
+                var countAdditionMinus = 0;
+                var countAdditionPlus = 0;
+
+                var currentMinusIndex = currentActiveIndex - 1;
+                for (i = 1; i <= 5; i++) {
+                    if (currentMinusIndex < 0) {
+                        countAdditionMinus++;
+                    } else {
+                        DOMchildren[currentMinusIndex].classList.add("visible");
+                        currentMinusIndex = currentMinusIndex - 1;
+                    }
+                }
+
+                var currentPlusIndex = currentActiveIndex + 1;
+                for (i = 1; i <= 5; i++) {
+                    if (currentPlusIndex > (DOMchildren.length - 1)) {
+                        countAdditionPlus++;
+                    } else {
+                        DOMchildren[currentPlusIndex].classList.add("visible");
+                        currentPlusIndex = currentPlusIndex + 1;
+                    }
+                }
+
+                if (countAdditionMinus > 0) {
+                    var lastVisibleIndex = document.getElementsByClassName("visible").length - 1;
+                    var lastVisibleChild = document.getElementsByClassName("visible")[lastVisibleIndex];
+                    var lastVisibleIndex = Array.prototype.indexOf.call(DOMchildren, lastVisibleChild);
+                    for (c = 1; c <= countAdditionMinus; c++) {
+                        lastVisibleIndexNew = lastVisibleIndex + c;
+                        DOMchildren[lastVisibleIndexNew].classList.add("visible");
+                    }
+                }
+                if (countAdditionPlus > 0) {
+                    var firstVisibleIndex = Array.prototype.indexOf.call(DOMchildren, document.getElementsByClassName("visible")[0]);
+                    for (c = 1; c <= countAdditionPlus; c++) {
+                        firstVisibleIndexNew = firstVisibleIndex - c;
+                        DOMchildren[firstVisibleIndexNew].classList.add("visible");
+                    }
+                }
+            }
+        }
+        window.addEventListener("keydown", function (event) {
+            var key = event.keyCode;
+            if (key == 8) {
+                slider("out");
+                setTimeout(function () {
+                    mp.trigger("menuClose");
+                }, 350);
+            } else if (key == 13) {
+                // User pressed enter
+                var currentActive = document.getElementsByClassName("active")[0];
+                var text = currentActive.children[0].innerText;
+                slider("out");
+                setTimeout(function () {
+                    mp.trigger("menuInteract", tr, text);
+                }, 400);
+            } else if (key == 38) {
+                // User pressed arrow up
+                var currentActive = document.getElementsByClassName("active")[0];
+                var currentActiveIndex = Array.prototype.indexOf.call(currentActive.parentNode.children,
+                    currentActive);
+                currentActive.classList.remove("active");
+                if (currentActiveIndex != 0) {
+                    currentActive.previousSibling.classList.add("active");
+                } else {
+                    document.getElementById("menuItemWrapper").lastElementChild.classList.add("active");
+                }
+                updateVisibles();
+            } else if (key == 40) {
+                // User pressed arrow down
+                var currentActive = document.getElementsByClassName("active")[0];
+                var currentActiveIndex = Array.prototype.indexOf.call(currentActive.parentNode.children,
+                    currentActive);
+                var childrenCount = document.getElementById("menuItemWrapper").childElementCount;
+                currentActive.classList.remove("active");
+                if (currentActiveIndex != childrenCount - 1) {
+                    currentActive.nextSibling.classList.add("active");
+                } else {
+                    document.getElementById("menuItemWrapper").firstElementChild.classList.add("active");
+                }
+                updateVisibles();
+            }
+        });
+    </script>
+</body>
+</html>
