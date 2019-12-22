@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+	<style>
+		@import url(https://fonts.googleapis.com/css?family=Lato:400,400italic,700);
+		@import url(https://fonts.googleapis.com/css?family=Satisfy:400);
+		
+		.divTextName {
+			position: absolute;
+			top: 115px;
+			left: 40px;
+			color: white;
+			font-size: 20px;
+			font-family: 'Lato';
+		}
+		.divTextDob {
+			position: absolute;
+			top: 140px;
+			left: 40px;
+			font-size: 20px;
+			color: white;
+			font-family: 'Lato';
+		}
+		.divValueName {
+			position: absolute;
+			top: 115px;
+			left: 110px;
+			font-size: 20px;
+			color: white;
+			font-family: 'Lato';
+		}
+		.divValueDob {
+			position: absolute;
+			top: 140px;
+			left: 180px;
+			font-size: 20px;
+			color: white;
+			font-family: 'Lato';
+		}
+		.divSignature {
+			position: absolute;
+			top: 242px;
+			left: 270px;
+			font-size: 20px;
+			color: black;
+			font-family: 'Satisfy';
+		}
+
+	</style>
+  </head>
+  <body style="width:100%;height:100%;overflow:hidden;>
+    <div style="position:absolute;top:0px;left:0px">
+        <img src="img/ausweis.png" />
+    </div>
+	<!-- Div Text Name -->
+	<div class="divTextName">Name:</div>
+	<!-- Div Text Geburtsdatum -->
+	<div class="divTextDob">Geburtsdatum:</div>
+	<!-- Div Value Name -->
+	<div class="divValueName" id="playerName"></div>
+	<!-- Div Value Geburtsdatum -->
+	<div class="divValueDob" id="dob"></div>
+	<!-- Div Unterschrift -->
+	<div class="divSignature" id="signature"></div>
+	
+	<script src="js/index.js"></script>
+  </body>  
+</html>
