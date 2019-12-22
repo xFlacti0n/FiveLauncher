@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=windows-1250">
+  <meta name="generator" content="PSPad editor, www.pspad.com">
+  <title></title>
+  <style>
+    .wrapper {
+    width: 100%;
+    height: 100%;
+	font-family: 'Open-Sans';
+  }
+  .box {
+    position: absolute;
+    top: 40%;
+    width: 40%;
+    height: 5%;
+    margin-left: 30%;
+    background-color: rgba(0,0,0,0.7);
+    font-size: 20px;
+    color: white;
+  }
+  .row {
+	width: 80%;
+	margin-left: 10%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+  }
+  .button {
+    color: white;
+    background-color: darkblue;
+    height: 30px;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 5px;  
+  }
+  .seventy-pc {
+    width: 70%;
+    margin-left: 15%;
+  }
+  input {
+	width: 100%;
+	height: 30px;
+  }
+
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="box">
+      <div class="row">
+        <input type="text" id="textInput" placeholder="Text" />
+      </div>
+      <!--  <div class="row">
+        <button class="button seventy-pc">Senden</button>
+      </div> -->
+    </div>
+  </div>
+</body>
+<script>
+  var trigger = '';
+  var num = false;
+  var split = false;
+
+  function setSplit(sp) {
+    split = sp;
+  }
+
+  function setNum(np) {
+    num = np;
+  }
+
+  function setTrigger(name) {
+    trigger = name;
+  }
+
+  document.getElementById("textInput").focus();
+  document.getElementById("textInput").select();
+
+
+  window.addEventListener("keydown", function (event) {
+    var key = event.keyCode;
+    if (key == 13) {
+      if (document.getElementById("textInput").value === '') return;
+
+      if (num === true) {
+        if (!isNaN(document.getElementById("textInput").value)) return;
+      }
+
+      mp.trigger("sendInput", trigger, document.getElementById("textInput").value);
+    }
+  });
+</script>
+
+</html>

@@ -1,0 +1,120 @@
+<link rel="stylesheet" href="style.css" />
+<div class="number-input">
+    <div class="main">
+        <div class="back">
+            <div class="frame">
+
+                <div class="lights">
+                    <div class="light1"></div>
+                    <div class="light2"></div>
+                    <div class="light3"></div>
+                </div>
+
+                <ul class="nums">
+                    <li class="number" onclick="clickNum('1')">1</li>
+                    <li class="number" onclick="clickNum('2')">2</li>
+                    <li class="number" onclick="clickNum('3')">3</li>
+                    <li class="number" onclick="clickNum('4')">4</li>
+                    <li class="number" onclick="clickNum('5')">5</li>
+                    <li class="number" onclick="clickNum('6')">6</li>
+                    <li class="number" onclick="clickNum('7')">7</li>
+                    <li class="number" onclick="clickNum('8')">8</li>
+                    <li class="number" onclick="clickNum('9')">9</li>
+                    <li class="number" onclick="cancelAction()" style="background: #ff9585;"></li>
+                    <li class="number" onclick="clickNum('0')">0</li>
+                    <li class="number" onclick="acceptAction()" style="background: #9ec16f;"></li>
+                </ul>
+
+                <div class="monitor">
+                    <div class="title">Rechnung Erstellen</div>
+                    <div class="line"></div>
+                    <div class="line2"></div>
+                    <div class="betrag">Betrag : </div>
+                    <div class="nachricht">Nachricht : </div>
+                    <div class="dollar">$</div>
+                    <input class="money" type="number" min="0" max="9999999999" id="input1" oninput="validity.valid||(value='');">
+                    <textarea class="text" type="text" min="0" max="9999999999" id="input2"></textarea>
+
+                    <div class="line3"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<audio id="click">
+    <source src="click.ogg" type="audio/ogg">
+  </audio>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    var trigger = '';
+    var num = false;
+    var split = false;
+
+    function setSplit(sp) {
+        split = sp;
+    }
+
+    function setNum(np) {
+        num = np;
+    }
+
+    function setTrigger(name) {
+        trigger = name;
+    }
+
+
+    window.addEventListener("keydown", function(event) {
+        var key = event.keyCode;
+        if (key == 13 && disable == 0) {
+            if (document.getElementById("input1").value === '' && document.getElementdByID("input2").value === '') return;
+
+            if (num === true) {
+                if (!isNaN(document.getElementById("input1").value) && !isNaN(document.getElementById("input2").value)) return;
+            }
+            
+            mp.trigger("sendInputRechnung", trigger, document.getElementById("input1").value, document.getElementById('input2').value);
+        }
+
+        if (key == 13 && disable == 1) {
+            mp.trigger('acceptInputRechnung', document.getElementById("input1").value, document.getElementById('input2').value);
+        }
+
+        if (key == 27 || key == 8) {
+            mp.trigger("closeInputRechnung");
+        }
+    });
+
+    setTimeout(function() {
+        document.getElementById('input1').focus();
+    }, 50)
+
+    let disable = 0;
+
+    //disableInputs('200', 'TEST')
+    function disableInputs(value, text) {
+        document.getElementById('input1').value = value;
+        document.getElementById('input2').innerHTML = text;
+
+        document.getElementById('input1').disabled = true;
+        document.getElementById('input2').disabled = true;
+
+        disable = 1;
+    }
+
+    function clickNum(number) {
+        if (disable == 0) {
+            let thisDocument = document.getElementById('input1')
+            thisDocument.value = thisDocument.value + number;
+            playClick();
+        }
+    }
+
+    function playClick() {
+        var audio = document.getElementById("click");
+        audio.play();
+        audio.volume = 0.2;
+    }
+</script>

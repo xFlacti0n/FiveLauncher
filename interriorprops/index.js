@@ -1,0 +1,21 @@
+//Nightclub
+mp.game.interior.enableInteriorProp(271617, "Int01_ba_security_upgrade");
+mp.game.interior.enableInteriorProp(271617, "Int01_ba_equipment_setup");
+mp.game.interior.enableInteriorProp(271617, "Int01_ba_Style01");
+mp.game.interior.enableInteriorProp(271617, "Int01_ba_style01_podium");
+mp.game.interior.enableInteriorProp(271617, "int01_ba_lights_screen");
+mp.game.interior.enableInteriorProp(271617, "Int01_ba_Screen");
+mp.game.interior.enableInteriorProp(271617, "Int01_ba_bar_content");
+mp.game.interior.enableInteriorProp(271617, "Int01_ba_booze_02");
+mp.game.interior.enableInteriorProp(271617, "Int01_ba_dj02");
+mp.game.interior.enableInteriorProp(271617, "DJ_01_Lights_02");
+mp.game.interior.enableInteriorProp(271617, "DJ_02_Lights_02");
+mp.game.interior.enableInteriorProp(271617, "DJ_03_Lights_02");
+mp.game.interior.enableInteriorProp(271617, "DJ_04_Lights_02");
+mp.game.interior.enableInteriorProp(271617, "Int01_ba_clubname_01");
+//mp.game.interior.enableInteriorProp(271617, "Int01_ba_dry_ice");
+//mp.game.interior.enableInteriorProp(271617, "Int01_ba_Worklamps");
+//mp.game.interior.enableInteriorProp(271617, "Int01_ba_trad_lights");
+//mp.game.interior.enableInteriorProp(271617, "Int01_ba_Clutter");
+mp.game.interior.enableInteriorProp(271617, "Int01_ba_deliverytruck");
+mp.game.interior.refreshInterior(271617);

@@ -1,0 +1,190 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url('https://fonts.googleapis.com/css?family=Anton|Fredoka+One|Karla&display=swap');
+@font-face {
+    font-family: 'DG';
+    src: url('digital-7.ttf') format('truetype');
+}
+
+body {user-select: none;}
+
+
+/* Donkey */
+
+.main {
+    background: #3f575b;
+    position: absolute;
+    width: 20vw;
+    left: 40vw;
+    top: 11vw;
+    height: 35vw;
+    border-radius: 2vw;
+}
+
+.back {
+    background: #5c6878;
+    position: absolute;
+    width: 20vw;
+    height: 15vw;
+    top: 18vw;
+}
+
+.frame {
+    position: absolute;
+    width: 18vw;
+    height: 15vw;
+    top: 0vw;
+    left: 1vw;
+    border-radius: 1vw;
+}
+
+.lights {
+    background: transparent;
+    position: absolute;
+    width: 11vw;
+    height: 1vw;
+    top: 0.5vw;
+    left: 1vw;
+}
+
+.light1 {
+    background: #1caaf4;
+    position: absolute;
+    width: 4.5vw;
+    height: 2.5vw;
+    top: -3.5vw;
+    border: 0.1vw solid #395354;
+    left: -0.1vw;
+}
+
+.light2 {
+    background: #f9ce70;
+    position: absolute;
+    width: 4.5vw;
+    height: 2.5vw;
+    top: -3.5vw;
+    left: 5.6vw;
+    border: 0.1vw solid #395354;
+}
+
+.light3 {
+    background: #81dfad;
+    position: absolute;
+    width: 4.5vw;
+    height: 2.5vw;
+    top: -3.5vw;
+    left: 11.25vw;
+    border: 0.1vw solid #395354;
+}
+
+.nums {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 18vw;
+    height: 14vw;
+    top: 1.25vw;
+    left: 0.4vw;
+}
+
+.number {
+    background: #aebebe;
+    margin: 0.5vw;
+    width: 4.5vw;
+    height: 2.5vw;
+    border: 0.1vw solid #446365;
+    float: left;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: 600;
+    line-height: 2.5vw;
+    cursor: pointer;
+    font-family: 'Karla';
+    color: #fff;
+    margin-bottom: 0.2vw;
+    margin-top: 0.2vw;
+}
+
+.money {
+    border: none;
+    outline: none;
+    position: absolute;
+    width: 10.05vw;
+    left: 4.75vw;
+    height: 2vw;
+    font-size: 1vw;
+    color: #000;
+    background: rgba(0, 0, 0, 0.05);
+    top: 10.25vw;
+    z-index: 10000;
+}
+
+.text {
+    border: none;
+    outline: none;
+    position: absolute;
+    width: 13.8vw;
+    left: 1vw;
+    height: 6vw;
+    font-size: 1vw;
+    color: #000;
+    background: rgba(0, 0, 0, 0.05);
+    top: 3.5vw;
+    z-index: 10000;
+    overflow: hidden;
+    resize: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.title {top: 0.2vw;z-index: 2;text-align: center;position: relative;font-size: 1vw;font-family: 'Karla';}
+
+.betrag {
+    top: 9.4vw;
+    z-index: 2;
+    position: relative;
+    font-size: 1vw;
+    font-family: 'Karla';
+    left: 1vw;
+}
+
+.nachricht {
+    top: -0.25vw;
+    z-index: 2;
+    position: relative;
+    font-size: 1vw;
+    font-family: 'Karla';
+    left: 1vw;
+}
+
+.line {position: absolute;width: 13.75vw;height: 0.05vw;background: #000;top: 10vw;left: 1vw;}
+
+.line2 {position: absolute;width: 13.75vw;height: 0.05vw;background: #000;top: 1.75vw;left: 1vw;}
+
+.line3 {position: absolute;width: 13.75vw;height: 0.3vw;background: #000;top: 31.75vw;left: 1vw;}
+
+.monitor {
+    background: #a9f6fe;
+    border: 0.1vw solid #306064;
+    position: absolute;
+    width: 15.75vw;
+    height: 12.5vw;
+    top: -16vw;
+    left: 1vw;
+}
+
+.dollar {
+    font-size: 1vw;
+    position: absolute;
+    top: 10.65vw;
+    left: 15vw;
+    font-family: 'Karla';
+}

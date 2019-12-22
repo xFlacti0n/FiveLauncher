@@ -1,0 +1,67 @@
+@font-face {
+	font-family: 'BNT';
+	src: url('bnt.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'OSR';
+	src: url('ocr.ttf') format('truetype');
+}
+
+.box {
+  background: rgba(0, 0, 0, 0.6);
+  width: 16vw;
+  height: 6vw;
+  margin: 21vw auto;
+  overflow: hidden;
+}
+
+.header {
+  background: #00ec90;
+  width: 14vw;
+  height: 1vw;
+  margin: 0 auto;
+  position: relative;
+  top: -0.5vw;
+  border-radius: 2vw;
+}
+
+.input {
+  margin: 1vw auto;
+  width: 12vw;
+  height: 2vw;
+}
+
+.value {
+  background: rgba(0, 0, 0, 0.8);
+  border: none;
+  outline: none;
+  color: #fff;
+  height: 2vw;
+  font-size: 1.5vw;
+  text-align: center;
+  width: 10vw;
+  font-family: 'BNT';
+}
+
+.accept {
+  width: 2vw;
+  height: 1.6vw;
+  background: #00ec90;
+  float: right;
+  text-align: center;
+  font-size: 1.25vw;
+  cursor: pointer;
+  padding-top: 0.4vw;
+}
+
+.placeholder {
+  font-family: 'OSR';
+  color: #fff;
+  position: absolute;
+  top: 25.4vw;
+  left: 45.25vw;
+}
+
+* {
+  user-select: none;
+}
