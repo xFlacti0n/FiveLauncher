@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="style.css">
+
+<div class="vertrag">
+    <img class="logo">
+    <div class="title1">Konto Eröffnungs Schreiben</div>
+
+    <div class="box1">
+        VON San Andreas Finanz GmbH
+        Power Street Pillbox Hill
+    </div>
+
+    <div class="button" onclick="acceptBank()">Bestätigen</div>
+</div>
+<script>
+    function acceptBank(){
+	mp.trigger("client:bank:sendVertrag");	
+}
+</script>
