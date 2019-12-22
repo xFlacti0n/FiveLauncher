@@ -1,0 +1,92 @@
+<html>
+
+
+<head>
+<link href="login.css" rel="stylesheet">
+<link href="fonts.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="bg"><img class="logo" src="img/logo2.png"></div>
+</head>
+
+
+<body>
+
+<iframe src="" allow="autoplay" style="display:none" id="iframeAudio">
+</iframe> 
+
+<div class="box">
+    <span class="errormessage" id="errormessage"></span>
+    <div class="dreieck"></div>
+    <div class="title" id="1">Login</div>
+    <div class="fields" id="2">
+    <input id="username" placeholder="Benutzername" class="name" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" ><i class="fas fa-user-alt" id="pimmel1"></i>
+    <input id="passwort" placeholder="Passwort" class="password" type="password" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><i class="fas fa-key" id="pimmel2"></i>
+    <input id="authkey" placeholder="Authy-Code" class="authkey" type="number" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><i class="fas fa-key" id="pimmel3"></i>
+    <div class="subtext">Deinen Account kannst du unter <b>https://techgames.de</b> erstellen.</div>
+    <span class="login" onclick="sendAccountInfos()">Einloggen</span>
+    </div>
+
+    <div id="a" class="activation" style="display: none;">
+        <div class="title">Aktivierungs-Code</div>
+        <div class="subtext2">Du bist wie es scheint noch nicht Aktiviert, solltest du keinen Aktivierungs-Code haben, musst du noch ein Gespr&auml;ch im TeamSpeak absolvieren.</div>
+        <div class="subtext3">Bitte gebe den Aktivierungs-Code ein, oder melde dich im Support.</div>
+        <input id="akey" class="akey" type="text" maxlength="16" placeholder="16-stelligen Key hier eingeben" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <span class="check" onclick="tryActivation()">Aktivieren</span>
+</div>
+</div>
+
+</body>
+
+<script>
+    function loginForm() {
+        document.myform.submit();
+        document.myform.action = "https://cdn.crunchify.com/wp-content/uploads/code/Crunchify-LoginPage.html";
+    }
+</script>
+<script>
+    var audio = new Audio("click.mp3");
+    var audio2 = new Audio('https://lspd.los-santos-info.de/welcome.ogg');
+    audio2.volume = .9;
+      audio2.play();
+
+    function provideUsername(username) {
+        document.getElementById("username").value = username;
+    }
+
+    function wrongPassword() {
+        document.getElementById("passwort").style.borderColor = "#eb0909";
+        errormessage('Das Passwort ist falsch!')
+        setTimeout(()=> {
+            document.getElementById("passwort").style.borderColor = "";
+        }, 1 * 1000);
+    }
+    function wrongUsername() {
+        document.getElementById("username").style.borderColor = "#eb0909";
+        setTimeout(() => {
+            document.getElementById("username").style.borderColor = "";
+        }, 1 * 1000);
+    }
+    
+    function errormessage(message)
+    {
+        document.getElementById("errormessage").innerHTML = message;
+    }
+
+	function sendAccountInfos() {
+        let loginName = document.getElementById("username").value;
+        let loginPass = document.getElementById("passwort").value;
+        audio.play();
+        mp.trigger("checkUsernamePassword",loginName,loginPass);
+    };
+    
+    function setName(username) {
+        document.getElementById('username').value = username;
+    }
+
+
+
+</script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</html>

@@ -1,0 +1,37 @@
+@font-face {
+	font-family: 'OCR';
+	src: url('fonts/OCRAEXT.TTF') format('truetype');
+}
+
+
+@font-face {
+	font-family: 'OSB';
+	src: url('fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OSE';
+	src: url('fonts/OpenSans-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OSL';
+	src: url('fonts/OpenSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OSR';
+	src: url('fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OSS';
+	src: url('fonts/OpenSans-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'BNT';
+	src: url('fonts/bnt.ttf') format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
