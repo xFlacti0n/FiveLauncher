@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="css/style-idcard.css" rel="stylesheet">
+<link href="css/style-servicecard.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<div id="idcard" class="idcard">
+    <span id="titlename" class="titlename">Vor- / Nachname</span>
+    <span id="name" class="name">Max Mustermann</span>
+    <span id="titleaddress" class="titleaddress">Anschrift</span>
+    <span id="address" class="address">Musterstraße 1</span>
+    <span id="titlebirthday" class="titlebirthday">Geburtstag</span>
+    <span id="birthday" class="birthday">01 . 01 . 1950</span>
+    <span id="titlebirthplace" class="titlebirthplace">Geburtsort</span>
+    <span id="birthplace" class="birthplace">Musterstadt</span>
+    <span id="titlejob" class="titlejob">Beruf</span>
+    <span id="beruf" class="beruf">Arbeitslos</span>
+    <span id="titlesignature" class="titlesignature">Unterschrift</span>
+    <span id="titlefamilystatus" class="titlefamilystatus">Familienstand</span>
+    <span id="familystatus" class="familystatus">nothing</span>
+    <!-- <span id="expiry" class="expiry">11.05.2024</span>-->
+    <span id="signature" class="signature">Max Mustermann</span>
+    <div id="idcard-picmaennlich" class="idcard-picmaennlich"></div>
+    <div id="idcard-picweiblich" class="idcard-picweiblich"></div>
+</div>
+
+<div id="servicecard" class="servicecard">
+    <span id="sctitlename" class="sctitlename">Vor- / Nachnrame</span>
+    <span id="scname" class="scname">Max Mustermann</span>
+    <span id="sctitlerangname" class="sctitlerangname">Rangbezeichnung</span>
+    <span id="scrangname" class="scrangname">Staff Sergeant</span>
+    <span id="sctitledienstnummer" class="sctitledienstnummer">Dienstnummer</span>
+    <span id="scdienstnummer" class="scdienstnummer">512</span>
+    <span id="sctitlesignature" class="sctitlesignature">Unterschrift</span>
+    <span id="scsignature" class="scsignature">Max Mustermann</span>
+    <span id="sctext" class="sctext">Los Santos Police Department</span>
+    <div id="servicecard-picmaennlich" class="servicecard-picmaennlich"></div>
+    <div id="servicecard-picweiblich" class="servicecard-picweiblich"></div>
+    <div id="lspd-logo" class="lspd-logo"></div>
+    <div id="lsmc-logo" class="lsmc-logo"></div>
+    <div id="justiz-logo" class="justiz-logo"></div>
+	<div id="acls-logo" class="acls-logo"></div>
+	<div id="noose-logo" class="noose-logo"></div>
+</div>
+
+<script>
+    //Personalausweis Funktion
+    function setIdentityCardInformation(gender, name, street, housenumber, birthdayday, birthdaymonth, birthdayyear, birthplace, job, familystand) {
+        //Variablen / Ausweis füllen
+        document.getElementById("name").innerHTML = name; //Name wird gesetzt
+        let straße = street; //Mitgegebene Straße wird in Variable "straße" gesetzt
+        let nummer = housenumber; //Mitgegebene Hausnummer wird in Variable "nummer" gesetzt
+        let anschrift = street + " " + housenumber; //Straße & Hausnummer werden zusammengefuegt und in Variable "anschrift" gesetzt
+        document.getElementById("address").innerHTML = anschrift; //Anschrift (Straße + Hausnummer) wird gesetzt.
+        let day = birthdayday; //Mitgegebener Geburtstag wird in Variable "day" gesetzt
+        let month = birthdaymonth; //Mitgegebener Geburtsmonat wird in Variable "month" gesetzt
+        let year = birthdayyear; //Mitgegebenes Geburtsjahr wird in Variable "year" gesetzt
+        let birthdayfull = day + " . " + month + " . " + year; //Geburtstag, Monat & Jahr werden in Variable "birthdayfull" gesetzt.
+        document.getElementById("birthday").innerHTML = birthdayfull; //Geburtsdatum wird gesetzt.
+        document.getElementById("birthplace").innerHTML = birthplace; //Geburtsort wird gesetzt.
+        document.getElementById("beruf").innerHTML = job; //Beruf wird gesetzt.
+        switch (familystand) { //Switch Abfrage welchen Familienstand Spieler hat
+            case 0: //Geschieden
+                document.getElementById("familystatus").innerHTML = "geschieden"; //Familienstand "Geschieden" wird gesetzt
+                break;
+            case 1: //Ledig
+                document.getElementById("familystatus").innerHTML = "ledig"; //Familienstand "ledig" wird gesetzt
+                break;
+            case 2: //Verheiratet
+                document.getElementById("familystatus").innerHTML = "verheiratet"; //Familienstand "verheiratet" wird gesetzt
+                break;
+        }
+        document.getElementById("signature").innerHTML = name; //Unterschrift wird gesetzt (entsteht aus dem Namen, siehe oben)
+        switch (gender) {
+            case 1: //Männlich        				
+                document.getElementById("idcard-picmaennlich").style.display = "block";
+                break;
+            case 2: //Weiblich        				
+                document.getElementById("idcard-picweiblich").style.display = "block";
+                break;
+        }
+        $(function() {
+            $('#idcard').hide().fadeIn(1500);
+            setTimeout(function() {
+                $('#idcard').fadeOut(1500);
+                $('#idcard-picmaennlich').fadeOut(1000);
+                $('#idcard-picweiblich').fadeOut(1000);
+                $('#justiz-logo').fadeOut(1000);
+            }, 8000);
+        })
+    }
+
+    //Dienstausweis Funktion
+    function setServiceCardInformation(frakid, gender, name, rangname, dienstnummer) {
+        switch (frakid) { //Welche Fraktion ist der Spieler?
+            //Justiz (DoJ)
+            case 1:
+                //Variablen / Ausweis füllen
+                document.getElementById("scname").innerHTML = name; //Name wird gesetzt
+                document.getElementById("scname").style.color = 'rgba(170, 89, 22, 0.8)'; //Textfarbe setzen (braun)
+                document.getElementById("scrangname").innerHTML = rangname; //Rangname wird gesetzt
+                document.getElementById("scrangname").style.color = 'rgba(170, 89, 22, 0.8)'; //Textfarbe setzen (braun)
+                document.getElementById("scdienstnummer").innerHTML = dienstnummer; //Dienstnummer wird gesetzt
+                document.getElementById("scdienstnummer").style.color = 'rgba(170, 89, 22, 0.8)'; //Textfarbe setzen (braun)
+                document.getElementById("scsignature").innerHTML = name; //Unterschrift wird gesetzt (entsteht aus dem Namen)
+                document.getElementById("scsignature").style.color = '#506fa0'; //Textfarbe setzen 
+                document.getElementById("justiz-logo").style.display = "block"; //Justiz Logo einblenden
+                document.getElementById("sctext").innerHTML = "Department of Justice"; //Sc Text setzen
+                document.getElementById("sctext").style.color = 'rgba(186, 97, 24, 0.8)'; //Sc Textfarbe setzen (helblraun)
+                document.getElementById("servicecard").style.borderColor = 'rgba(186, 97, 24, 1)';
+                switch (gender) {
+                    case 1: //Männlich        				
+                        document.getElementById("servicecard-picmaennlich").style.display = "block";
+                        break;
+                    case 2: //Weiblich        				
+                        document.getElementById("servicecard-picweiblich").style.display = "block";
+                        break;
+                }
+
+                $(function() {
+                    $('#servicecard').hide().fadeIn(1500);
+                    setTimeout(function() {
+                        $('#servicecard').fadeOut(1500);
+                        $('#servicecard-picmaennlich').fadeOut(1000);
+                        $('#servicecard-picweiblich').fadeOut(1000);
+                        $('#justiz-logo').fadeOut(1000);
+                    }, 8000);
+                })
+                break;
+                //LSPD
+            case 2:
+                //Variablen / Ausweis füllen
+                document.getElementById("scname").innerHTML = name; //Name wird gesetzt
+                document.getElementById("scname").style.color = 'rgba(79, 199, 226, 0.8)'; //Textfarbe setzen (blau)
+                document.getElementById("scrangname").innerHTML = rangname; //Rangname wird gesetzt
+                document.getElementById("scrangname").style.color = 'rgba(79, 199, 226, 0.8)';
+                document.getElementById("scdienstnummer").innerHTML = dienstnummer; //Dienstnummer wird gesetzt
+                document.getElementById("scdienstnummer").style.color = 'rgba(79, 199, 226, 0.8)';
+                document.getElementById("scsignature").innerHTML = name; //Unterschrift wird gesetzt (entsteht aus dem Namen)
+                document.getElementById("scsignature").style.color = '#506fa0';
+                document.getElementById("lspd-logo").style.display = "block"; //LSPD Logo einblenden
+                document.getElementById("sctext").innerHTML = "Los Santos Police Department"; //sc Text setzen
+                document.getElementById("sctext").style.color = 'rgba(91, 208, 234, 0.8)';
+                document.getElementById("servicecard").style.borderColor = 'rgba(91, 208, 234, 1)';
+                switch (gender) {
+                    case 1: //Männlich        				
+                        document.getElementById("servicecard-picmaennlich").style.display = "block";
+                        break;
+                    case 2: //Weiblich        				
+                        document.getElementById("servicecard-picweiblich").style.display = "block";
+                        break;
+                }
+
+                $(function() {
+                    $('#servicecard').hide().fadeIn(1500);
+                    setTimeout(function() {
+                        $('#servicecard').fadeOut(1500);
+                        $('#servicecard-picmaennlich').fadeOut(1000);
+                        $('#servicecard-picweiblich').fadeOut(1000);
+                        $('#lspd-logo').fadeOut(1000);
+                    }, 8000);
+                })
+                break;
+                //LSMC
+            case 3:
+                //Variablen / Ausweis füllen
+                document.getElementById("scname").innerHTML = name; //Name wird gesetzt
+                document.getElementById("scname").style.color = 'rgba(198, 57, 21, 0.8)'; //Textfarbe gesetzt (rot)
+                document.getElementById("scrangname").innerHTML = rangname; //Rangname wird gesetzt
+                document.getElementById("scrangname").style.color = 'rgba(198, 57, 21, 0.8)'; //Textfarbe gesetzt (rot)
+                document.getElementById("scdienstnummer").innerHTML = dienstnummer; //Dienstnummer wird gesetzt
+                document.getElementById("scdienstnummer").style.color = 'rgba(198, 57, 21, 0.8)'; //Textfarbe gesetzt (rot)
+                document.getElementById("scsignature").innerHTML = name; //Unterschrift wird gesetzt
+                document.getElementById("scsignature").style.color = '#506fa0';
+                document.getElementById("lsmc-logo").style.display = "block"; //LSMC Logo einblenden
+                document.getElementById("sctext").innerHTML = "Los Santos Medical Center"; //LSMC Text setzen
+                document.getElementById("sctext").style.color = 'rgba(204, 65, 30, 0.8)'; //LSMC Text färben (rot)
+                document.getElementById("servicecard").style.borderColor = 'rgba(204, 65, 30, 1)';
+                switch (gender) {
+                    case 1: //Männlich
+                        document.getElementById("servicecard-picmaennlich").style.display = "block";
+                        break;
+                    case 2: //Weiblich
+                        document.getElementById("servicecard-picweiblich").style.display = "block";
+                        break;
+                }
+
+                $(function() {
+                    $('#servicecard').hide().fadeIn(1500);
+                    setTimeout(function() {
+                        $('#servicecard').fadeOut(1500);
+                        $('#servicecard-picmaennlich').fadeOut(1000);
+                        $('#servicecard-picweiblich').fadeOut(1000);
+                        $('#lsmc-logo').fadeOut(1000);
+                    }, 8000);
+                })
+                break;
+                //ACLS
+            case 4:
+                //Variablen / Ausweis füllen
+                document.getElementById("scname").innerHTML = name; //Name wird gesetzt
+                document.getElementById("scname").style.color = 'rgba(226, 209, 79, 0.8)'; //Textfarbe setzen (gelb)
+                document.getElementById("scrangname").innerHTML = rangname; //Rangname wird gesetzt
+                document.getElementById("scrangname").style.color = 'rgba(226, 209, 79, 0.8)';
+                document.getElementById("scdienstnummer").innerHTML = dienstnummer; //Dienstnummer wird gesetzt
+                document.getElementById("scdienstnummer").style.color = 'rgba(226, 209, 79, 0.8)';
+                document.getElementById("scsignature").innerHTML = name; //Unterschrift wird gesetzt (entsteht aus dem Namen)
+                document.getElementById("scsignature").style.color = 'rgb(160, 158, 80)';
+                document.getElementById("acls-logo").style.display = "block"; //ACLS Logo einblenden
+                document.getElementById("sctext").innerHTML = "Auto Club Los Santos"; //sc Text setzen
+                document.getElementById("sctext").style.color = 'rgba(223, 234, 91, 0.8)';
+                document.getElementById("servicecard").style.borderColor = 'rgb(223, 234, 91)';
+                switch (gender) {
+                    case 1: //Männlich        				
+                        document.getElementById("servicecard-picmaennlich").style.display = "block";
+                        break;
+                    case 2: //Weiblich        				
+                        document.getElementById("servicecard-picweiblich").style.display = "block";
+                        break;
+                }
+
+                $(function() {
+                    $('#servicecard').hide().fadeIn(1500);
+                    setTimeout(function() {
+                        $('#servicecard').fadeOut(1500);
+                        $('#servicecard-picmaennlich').fadeOut(1000);
+                        $('#servicecard-picweiblich').fadeOut(1000);
+                        $('#lspd-logo').fadeOut(1000);
+                    }, 800000);
+                })
+                break;
+                //Noose
+            case 5:
+                //Variablen / Ausweis füllen
+                document.getElementById("scname").innerHTML = name; //Name wird gesetzt
+                document.getElementById("scname").style.color = 'rgba(0, 0, 0, 0.8)'; //Textfarbe setzen (schwarz)
+                document.getElementById("scrangname").innerHTML = rangname; //Rangname wird gesetzt
+                document.getElementById("scrangname").style.color = 'rgba(0, 0, 0, 0.8)';
+                document.getElementById("scdienstnummer").innerHTML = dienstnummer; //Dienstnummer wird gesetzt
+                document.getElementById("scdienstnummer").style.color = 'rgba(0, 0, 0, 0.8)';
+                document.getElementById("scsignature").innerHTML = name; //Unterschrift wird gesetzt (entsteht aus dem Namen)
+                document.getElementById("scsignature").style.color = 'rgb(0, 0, 0)';
+                document.getElementById("noose-logo").style.display = "block"; //NOOSE Logo einblenden
+                document.getElementById("sctext").innerHTML = "National Office of Security Enforcement"; //sc Text setzen
+                document.getElementById("sctext").style.color = 'rgba(0, 0, 0, 0.8)';
+                document.getElementById("servicecard").style.borderColor = 'rgb(0, 0, 0)';
+                switch (gender) {
+                    case 1: //Männlich        				
+                        document.getElementById("servicecard-picmaennlich").style.display = "block";
+                        break;
+                    case 2: //Weiblich        				
+                        document.getElementById("servicecard-picweiblich").style.display = "block";
+                        break;
+                }
+
+                $(function() {
+                    $('#servicecard').hide().fadeIn(1500);
+                    setTimeout(function() {
+                        $('#servicecard').fadeOut(1500);
+                        $('#servicecard-picmaennlich').fadeOut(1000);
+                        $('#servicecard-picweiblich').fadeOut(1000);
+                        $('#lspd-logo').fadeOut(1000);
+                    }, 8000);
+                })
+                break;
+        }
+    }
+</script>

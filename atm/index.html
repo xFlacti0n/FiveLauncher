@@ -1,0 +1,155 @@
+<!-- read https://rage-trade.de/license -->
+<!-- copyright 2019 Rage-Trade.de -->
+<html>
+<head>
+    <link href="css/atm.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script type="text/javascript" src="https://lib.dginx.de/lib/lodash/4.17.11/lodash.js"></script>
+</head>
+<body class="noselect" >
+    <div class="bg"></div>
+<div id="app">
+
+    <div class="topline"></div>
+    
+    <div class="head">
+        <img class="logo2" src="img/banklogo.png">
+        <div class="text">Hallo <span id="name">{{ owner }}</span> Hier bist du im Bank-System, hier kannst du Geld Abheben, Aufladen oder eine Transaktion erstellen.</div>
+    </div>
+    
+    <div class="subline1"></div>
+    
+    <div class="subline2">Schnell-Zugriff</div>
+    
+    <div id="box" name="mainClass">
+    
+        <div class="auszahlen">
+                <div class="a-head">Auszahlen
+                        <img class="a-icon" src="img/auszahlen.png">
+                    </div>
+
+            <div class="auszahleninhalt">
+            <div class="a-subtext">Geld auf dem Konto</div>
+            <span class="a-balance">247.000$</span>
+            <input class="a-count" type="number" placeholder="Betrag Eingeben"><div class="a-icon2">$</div><div class="a-line"></div>
+            <div class="a-accept" onclick="Abheben();">Best&auml;tigen</div>
+            <div class="a-errortext"></div>
+            </div>
+                        
+            <div class="auszahlenstatus">
+            <div class="statustext">Der Betrag von <div class="statusmoney"></div><div class="statustäxt"> wurde erfolgreich </div><div class="statustype"></div></div>
+            <div class="statusaccept" onclick="unchecker(1);">Bestätigen</div>
+            </div>
+
+        </div>
+    
+    
+        <div class="einzahlen">
+                <div class="e-head">Einzahlen
+                        <img class="e-icon" src="img/einzahlen.png">
+                    </div>
+            <div class="einzahleninhalt">
+            <div class="e-subtext">Geld in der Brieftasche</div>
+            <span class="e-balance">345$</span>
+            <input class="e-count" type="number" placeholder="Betrag Eingeben"><div class="e-icon2">$</div><div class="e-line"></div>
+            <div class="e-accept" onclick="Einzahlen();">Best&auml;tigen</div>
+            <div class="e-errortext"></div>
+            </div>
+
+            <div class="einzahlenstatus">
+                    <div class="statustext">Der Betrag von <div class="statusmoney"></div><div class="statustäxt"> wurde erfolgreich </div><div class="statustype"></div></div>
+                    <div class="statusaccept" onclick="unchecker(2);">Bestätigen</div>
+            </div>
+        </div>
+    
+    
+        <div class="ueberweisen">
+                <div class="t-head">&Uuml;berweisung
+                    <img class="t-icon" src="img/transfer.png">
+                </div>
+
+                <div class="ueberweiseninhalt">
+            <div class="t-subtext">Geld auf dem Konto</div>
+            <span class="t-balance">247.000$</span>
+            <input class="t-number" type="number" placeholder="IBAN">
+            <input class="t-count" type="number" placeholder="Betrag Eingeben"><div class="t-icon2">$</div><div class="t-line"></div>
+            <input class="t-text" type="text" placeholder="Nachricht">
+            <div class="t-accept" onclick="ueberweisen();">Best&auml;tigen</div>
+            <div class="t-errortext"></div>
+            </div>
+     
+            <div class="ueberweisenstatus">
+                    <div class="statustext">Der Betrag von <div class="statusmoney"></div><div class="statustäxt"> wurde erfolgreich an das Konto </div><div class="statusiban"></div><div class="statustype"></div></div>
+                    <div class="statusaccept" onclick="unchecker(3);">Bestätigen</div>
+                </div>
+
+        </div>
+    
+    </div>
+    
+    <div class="verlauf hidden" name="verlaufClass">
+    
+    <img class="back" onclick="switchSite('mainClass')" src="img/back.png">
+    
+    
+    <div id="box" class="">
+        <ul class="verlauf">
+            <li v-for="transfer in orderedTransfers" class="verlaufitem1">
+                <div class="v-head">
+                    <span class="v-title">Überweisung</span> <span class="v-date">{{transfer.date}}</span><span class="v-clock">{{transfer.time}}</span>
+                </div>
+
+                <div class="button1">Absender</div>
+                <div class="text1">Kontoart: <span class="v-kontotype">Privatgirokonto</span></div> <div class="text2">Betrag: <span class="v-money" v-if="transfer.money > 0" style="color:green;">{{transfer.money}}$</span><span class="v-money" v-else style="color:red;">{{transfer.money}}$</span></div>
+                <div class="text3">IBAN: <span class="v-iban">{{ transfer.senderIBAN }}</span></div>
+                <div class="text4">Name: <span class="v-othername">{{ transfer.senderName }}</span></div>
+                <div class="text5">Nachricht: <span class="v-message">{{ transfer.text }}</span></div>   <div class="text6">Kontostand: <span class="v-kontostand">11.999.880$</span></div>
+
+                <div class="button2">Empfänger</div>
+                <div class="text7">Trans.-Art: <span class="v-type" v-if="transfer.money > 0">Eingehend</span><span class="v-type" v-else style="color: red;"> Ausgehend</span></div> <div class="text8">Kontoinhaber: <span class="v-kontoinhaber">Joshua Gerke</span></div>
+                <div class="text9">IBAN: <span class="v-ibanki">DE93 2695 1311 0161 2948 63</span></div>
+
+            </li>
+    
+        </ul>
+    </div>
+    </div>
+    
+    <div class="überdecken1"></div>
+    <div class="überdecken2"></div>
+    <div class="überdecken3"></div>
+    
+    <div class="box3"><a class="festgehalt">Fest-Gehalt:</a><br><span id="festgehalt">{{ gehalt.money}}</span><a id="kicon" style="color:#00ec90">$</a></div>
+    
+    <div class="quick1 box foo"><img class="deposit" src="img/einzahlen.png"><a class="quickdollar">2.000$</a></div>
+    
+    <div class="quick2 box foo"><img class="deposit" src="img/einzahlen.png"><a class="quickdollar">500$</a></div>
+    
+    <div class="quick3 box foo"><img class="deposit" src="img/einzahlen.png"><a class="quickdollar">100$</a></div>
+    
+    <div class="quick4 box foo"><img class="withdraw" src="img/auszahlen.png"><a class="quickdollar">2.000$</a></div>
+    
+    <div class="quick5 box foo"><img class="withdraw" src="img/auszahlen.png"><a class="quickdollar">500$</a></div>
+    
+    <div class="quick6 box foo"><img class="withdraw" src="img/auszahlen.png"><a class="quickdollar">100$</a></div>
+    
+    <div onclick="switchSite('verlaufClass')" class="quick7 box foo"><img class="document" src="img/paper.png"><a class="quickdollar">Verlauf</a></div>
+    
+    <div class="subline4"onclick="CloseATM();">DR&Uuml;CKEN ZUM BEENDEN</div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+
+
+        function CloseATM() {
+            mp.trigger("closeATM");
+        }
+
+    </script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script src="js/atm.js"></script>-->
+    </body>
+
+</html>

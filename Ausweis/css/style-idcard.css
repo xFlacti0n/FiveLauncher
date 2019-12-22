@@ -1,0 +1,260 @@
+@font-face {
+    font-family: 'DB';
+    src: url('../fonts/db.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OSR';
+    src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OSSB';
+    src: url('../fonts/OpenSans-Semibold.ttf') format('truetype');
+}
+
+.idcard {
+    display: none;
+    position: absolute;
+    top: 14vw;
+    background: url(../img/card.png);
+    width: 33vw;
+    height: 17vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 65vw;
+    text-transform: uppercase;
+    font-size: 1.2vw;
+    border-style: groove;
+    border-color: #00ec90;
+}
+
+.name {
+    position: absolute;
+    top: 2.5vw;
+    left: 14vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    background-color: #fff;
+    color: rgba(0, 236, 144, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 15vw;
+}
+
+.address{
+    position: absolute;
+    top: 5.5vw;
+    left: 14vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    background-color: #fff;
+    color: rgba(0, 236, 144, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0.01vw;
+    width: 17.2vw;
+}
+
+.housenumber {
+    position: absolute;
+    top: 5.5vw;
+    left: 28vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    background-color: #fff;
+    color: rgba(0, 246, 144, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0.01vw;
+    width: 13.2vw;
+}
+
+.birthday {
+    position: absolute;
+    top: 8.5vw;
+    left: 14vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    background-color: #fff;
+    color: rgba(0, 246, 144, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: -0.1vw;
+    width: 5.2vw;
+}
+
+.birthplace {
+    position: absolute;
+    top: 8.5vw;
+    left: 22vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    background-color: #fff;
+    color: rgba(0, 246, 144, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0.09vw;
+    width: 10.97vw;
+}
+
+.beruf {
+    position: absolute;
+    top: 11.5vw;
+    left: 14vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    background-color: #fff;
+    color: rgba(0, 246, 144, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0.09vw;
+    width: 7vw;
+}
+
+.familystatus {
+    position: absolute;
+    top: 11.5vw;
+    left: 22vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    background-color: #fff;
+    color: rgba(0, 246, 144, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0.09vw;
+    width: 7vw;
+}
+
+.signature {
+    font-family: 'DB';
+    position: absolute;
+    top: 14.5vw;
+    left: 19vw;
+ /*   background-color: #fff;*/
+  /*  color: rgba(0, 246, 144, 0.8);*/
+    color: #506fa0;
+    -webkit-background-clip: text;
+    font-size: 0.8vw;
+    transform: rotate(-1deg);
+    word-spacing: -0.2vw;
+    width: 13.5vw;
+}
+
+.titlename {
+    position: absolute;
+    top: 1.5vw;
+    left: 14vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    background-color: #fff;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 15vw;
+}
+
+.titleaddress {
+    position: absolute;
+    top: 4.5vw;
+    left: 14vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 15vw;
+}
+
+.titlehousenumber {
+    position: absolute;
+    top: 4.5vw;
+    left: 28vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 13vw;
+}
+
+.titlebirthday {
+    position: absolute;
+    top: 7.5vw;
+    left: 14vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 6vw;
+}
+
+.titlebirthplace {
+    position: absolute;
+    top: 7.5vw;
+    left: 22vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 6vw;
+}
+
+.titlejob {
+    position: absolute;
+    top: 10.5vw;
+    left: 14vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 15vw;
+}
+
+.titlefamilystatus {
+    position: absolute;
+    top: 10.5vw;
+    left: 22vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 7vw;
+}
+
+.titlesignature {
+    position: absolute;
+    top: 13.5vw;
+    left: 22vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 10vw;
+}
+
+.idcard-picmaennlich {
+    display: none;
+    width: 15vw;
+    height: 16vw;
+    position: absolute;
+    background: url(../img/pb.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 1vw;
+    left: 0vw;
+    opacity: 0.7;
+}
+
+.idcard-picweiblich {
+    display: none;
+    width: 15vw;
+    height: 16vw;
+    position: absolute;
+    background: url(../img/weiblich.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 1vw;
+    left: 0vw;
+    opacity: 0.7;
+}

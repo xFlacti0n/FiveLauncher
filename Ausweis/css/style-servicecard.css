@@ -1,0 +1,226 @@
+@font-face {
+    font-family: 'DB';
+    src: url('../fonts/db.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OSR';
+    src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OSSB';
+    src: url('../fonts/OpenSans-Semibold.ttf') format('truetype');
+}
+
+.servicecard {
+    position: absolute;
+    top: 14vw;
+    background: url(../img/card.png);
+    width: 33vw;
+    height: 17vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 65vw;
+    text-transform: uppercase;
+    font-size: 1.2vw;
+    border-style: groove;
+    border-color: #0074ec;
+    display: none;
+}
+
+.sctext {
+    position: absolute;
+    top: 15.5vw;
+    left: 12vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    color: rgba(125, 174, 218, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 22vw;
+}
+
+.scname {
+    position: absolute;
+    top: 4.5vw;
+    left: 14vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    color: rgba(59, 124, 229, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 15vw;
+}
+
+.scrangname{
+    position: absolute;
+    top: 7.5vw;
+    left: 14vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    color: rgba(59, 124, 229, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0.01vw;
+    width: 9.2vw;
+}
+
+.scdienstnummer {
+    position: absolute;
+    top: 7.5vw;
+    left: 24vw;
+    font-family: OSR;
+    font-size: 0.9vw;
+    color: rgba(59, 124, 229, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0.01vw;
+    width: 6.2vw;
+}
+
+.scsignature {
+    font-family: 'DB';
+    position: absolute;
+    top: 11.5vw;
+    left: 14vw;
+    color: #506fa0;
+    -webkit-background-clip: text;
+    font-size: 0.8vw;
+    transform: rotate(-1deg);
+    word-spacing: -0.2vw;
+    width: 13.5vw;
+}
+
+.sctitlename {
+    position: absolute;
+    top: 3.5vw;
+    left: 14vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 15vw;
+}
+
+.sctitlerangname {
+    position: absolute;
+    top: 6.5vw;
+    left: 14vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 15vw;
+}
+
+.sctitledienstnummer {
+    position: absolute;
+    top: 6.5vw;
+    left: 24vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 7vw;
+}
+
+.sctitlesignature {
+    position: absolute;
+    top: 10.5vw;
+    left: 14vw;
+    font-family: OSSB;
+    font-size: 0.8vw;
+    color: rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    word-spacing: 0vw;
+    width: 10vw;
+}
+
+.servicecard-picmaennlich {
+    display: none;
+    width: 15vw;
+    height: 16vw;
+    position: absolute;
+    background: url(../img/pb.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 1vw;
+    left: 0vw;
+    opacity: 0.7;
+}
+
+.servicecard-picweiblich {
+    display: none;
+    width: 15vw;
+    height: 16vw;
+    position: absolute;
+    background: url(../img/weiblich.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 1vw;
+    left: 0vw;
+    opacity: 0.7;
+}
+
+.lspd-logo {
+    display: none;
+    position: absolute;
+    background: url(../img/lspdlogo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0vw;
+    left: 26.5vw;
+    height: 6vw;
+    width: 6vw;
+}
+
+.lsmc-logo {
+    display: none;
+    position: absolute;
+    background: url(../img/lsmclogo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0.5vw;
+    left: 27.5vw;
+    height: 4.2vw;
+    width: 4.1vw;
+}
+
+.noose-logo {
+    display: none;
+    position: absolute;
+    background: url(../img/nooselogo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0.2vw;
+    left: 27vw;
+    height: 5.5vw;
+    width: 5.5vw;
+}
+
+.acls-logo {
+    display: none;
+    position: absolute;
+    background: url(../img/aclslogo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0.2vw;
+    left: 27vw;
+    height: 5.5vw;
+    width: 5.5vw;
+}
+
+.justiz-logo {
+    display: none;
+    position: absolute;
+    background: url(../img/justizlogo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0.5vw;
+    left: 26.5vw;
+    height: 5.5vw;
+    width: 5.5vw;
+}
