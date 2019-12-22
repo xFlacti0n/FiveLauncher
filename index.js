@@ -1,0 +1,1 @@
+require("TechGames/script.js");
