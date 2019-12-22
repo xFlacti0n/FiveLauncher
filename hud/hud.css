@@ -1,0 +1,442 @@
+@font-face {
+    font-family: 'OSB';
+    src: url('../fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OSE';
+    src: url('../fonts/OpenSans-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OSL';
+    src: url('../fonts/OpenSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OSR';
+    src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OSS';
+    src: url('../fonts/OpenSans-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'BNT';
+    src: url('../fonts/bnt.ttf') format('truetype');
+}
+
+body {
+    user-select: none;
+}
+
+* {
+    user-select: none;
+}
+
+.dreieck {
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 1vw solid transparent;
+    border-bottom: 1vw solid #09eb94;
+    transform: rotate(180deg);
+    right: 0.2vw;
+    position: absolute;
+    top: 0.2vw;
+}
+
+.boxlife {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 15vw;
+    height: 2vw;
+    top: 2vw;
+    border: 2px solid rgb(72, 103, 99);
+}
+
+.boxarmor {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 15vw;
+    height: 2vw;
+    top: 4.7vw;
+    border: 2px solid rgb(72, 103, 99);
+}
+
+.boxcash {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 6.15vw;
+    height: 2vw;
+    top: 9.4vw;
+    border: 2px solid rgb(72, 103, 99);
+    right: 2.35vw;
+}
+
+.boxbank {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 5.5vw;
+    height: 2vw;
+    top: 7.4vw;
+    border: 2px solid rgb(72, 103, 99);
+    left: 6.2vw;
+}
+
+.boxbitcoin {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 5.2vw;
+    height: 2vw;
+    top: 7.4vw;
+    border: 2px solid rgb(72, 103, 99);
+    left: 12.4vw;
+}
+
+.iconlife {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 2vw;
+    height: 2vw;
+    top: 2vw;
+    border: 2px solid rgb(72, 103, 99);
+    left: 15.6vw;
+}
+
+.iconarmor {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 2vw;
+    height: 2vw;
+    top: 4.7vw;
+    border: 2px solid rgb(72, 103, 99);
+    left: 15.6vw;
+}
+
+.boxlevel {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 6.7vw;
+    height: 3.3vw;
+    top: 2vw;
+    border: 2px solid rgb(72, 103, 99);
+    left: 18.2vw;
+}
+
+.boxfood {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 8.5vw;
+    height: 1.3vw;
+    top: 6.05vw;
+    border: 2px solid rgb(72, 103, 99);
+    left: 16.25vw;
+}
+
+.boxdrink {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 8.5vw;
+    height: 1.3vw;
+    top: 7.75vw;
+    border: 2px solid rgb(72, 103, 99);
+    left: 16.3vw;
+}
+
+.inlinelife {
+    background: #2e5747ab;
+    position: absolute;
+    width: 14.6vw;
+    height: 1.6vw;
+    top: 0.2vw;
+    left: 0.2vw;
+}
+
+.inlife {
+    background: #09eb95;
+    position: absolute;
+    width: 74%;
+    height: 1.6vw;
+    transform: rotate(180deg);
+    right: 0vw;
+}
+
+.inlinearmor {
+    background: #2e5a5bab;
+    position: absolute;
+    width: 14.6vw;
+    height: 1.6vw;
+    top: 0.2vw;
+    left: 0.2vw;
+}
+
+.inarmor {
+    background: #0ad4ec;
+    position: absolute;
+    width: 24%;
+    height: 1.6vw;
+    transform: rotate(180deg);
+    right: 0vw;
+}
+
+.inlinefood {
+    background: #695530ab;
+    position: absolute;
+    width: 6.9vw;
+    height: 1.1vw;
+    top: 0.1vw;
+    left: 1.5vw;
+}
+
+.inlinedrink {
+    background: #2e5a5bab;
+    position: absolute;
+    width: 6.9vw;
+    height: 1.1vw;
+    top: 0.1vw;
+    left: 1.5vw;
+}
+
+.icon1 {
+    color: #fff;
+    font-size: 1.6vw;
+    position: absolute;
+    left: 0.4vw;
+    top: 0.2vw;
+}
+
+.icon2 {
+    color: #fff;
+    font-size: 1.6vw;
+    position: absolute;
+    left: 0.2vw;
+    top: 0.2vw;
+}
+
+.icon3 {
+    color: #fff;
+    width: 1.6vw;
+    position: absolute;
+    left: 0.2vw;
+    top: 0.2vw;
+}
+
+.icon4 {
+    color: #fff;
+    width: 1vw;
+    position: absolute;
+    left: 0.2vw;
+    top: 0.15vw;
+}
+
+.infood {
+    background: #ec890a;
+    position: absolute;
+    width: 79%;
+    height: 1.12vw;
+    left: 0vw;
+}
+
+.indrink {
+    background: #0ad4ec;
+    position: absolute;
+    width: 40%;
+    height: 1.12vw;
+    left: 0vw;
+}
+
+#K {
+    position: absolute;
+    right: 0.3vw;
+    font-size: 2vw;
+    top: -0.1vw;
+    transform: skew(-4deg);
+    color: #11ea99;
+    display: none;
+}
+
+#lv {
+    position: absolute;
+    font-size: 2vw;
+    top: 0.3vw;
+    color: #fff;
+    left: 1.7vw;
+}
+
+#level {
+    position: absolute;
+    font-size: 2vw;
+    top: 0.3vw;
+    color: #fff;
+    left: 3.5vw;
+}
+
+#cash {
+    color: #fff;
+    left: 2.4vw;
+    font-size: 1.5vw;
+    top: 0.15vw;
+}
+
+#bank {
+    color: #fff;
+    left: 2.4vw;
+    font-size: 2vw;
+    top: -0.1vw;
+}
+
+#bitconnect {
+    color: #fff;
+    right: 0.5vw;
+    font-size: 2vw;
+    top: -0.1vw;
+}
+
+.inlinelevel {
+    background: #486763;
+    position: absolute;
+    width: 80%;
+    height: 0.3vw;
+    left: 0vw;
+    bottom: 0.1vw;
+}
+
+.box {
+    background: transparent;
+    position: absolute;
+    width: 25vw;
+    height: 10vw;
+    right: 0.5vw;
+    bottom: 2vw;
+}
+
+
+input,
+textarea,
+select,
+button {
+    text-rendering: auto;
+    color: #fff;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 3vw;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0.4vw;
+    font: 400 1vw OSL;
+    background: #202f2d;
+}
+input {
+    -webkit-appearance: textfield;
+    background-color: transparent;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    padding: 1vw;
+    border-width: 0.1vw;
+    border-style: solid;
+    border-color: #2e413f;
+    border-image: initial;
+    border-radius: 2vw;
+    margin-left: 0.5vw;
+    width: 25vw;
+    transition: 0.2s;
+    opacity: 0.5;
+    background: #202f2d;
+}
+input:focus,
+textarea:focus,
+select:focus {
+    outline-offset: 0px;
+}
+input:focus>i {
+    color: #fff;
+}
+:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+    opacity: 1;
+    border-color: #09eb94;
+}
+#pimmel1 {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2vw;
+    left: 2vw;
+    top: 10.4vw;
+}
+#pimmel2 {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2vw;
+    left: 2vw;
+    top: 14.7vw;
+    transition: 0.2s;
+}
+#role {
+    color: #a1eecec7;
+    right: 0vw;
+    top: 0vw;
+    transform: skew(-5deg);
+}
+.text1 {
+    -webkit-appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    transition: 0.2s;
+    opacity: 1;
+    font-family: 'BNT';
+    text-align: center;
+    font-size: 1.5vw;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.7);
+}
+.text2 {
+    -webkit-appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    transition: 0.2s;
+    opacity: 1;
+    font-family: 'BNT';
+    text-align: center;
+    font-size: 1.5vw;
+    position: absolute;
+    color: rgba(255, 255, 255, 0.7);
+    right: 3.9vw;
+}
+span {
+    -webkit-appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    transition: 0.2s;
+    opacity: 1;
+    font-family: 'BNT';
+    text-align: center;
+    font-size: 1.5vw;
+    position: absolute;
+}
+.logo {
+    width: 12vw;
+    opacity: 1;
+    z-index: 1000;
+    position: absolute;
+    left: 43vw;
+    top: 2vw;
+}
+.micro {
+    width: 1.6vw;
+    position: absolute;
+    top: 0.2vw;
+    left: 0.25vw;
+}
+.boxmic {
+    background: rgba(32, 47, 45, 0.90);
+    position: absolute;
+    width: 2vw;
+    height: 2vw;
+    top: 9.4vw;
+    border: 2px solid rgb(72, 103, 99);
+    right: 0vw;
+}
