@@ -1,0 +1,519 @@
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <div id="wrapper--modal" style="width: 100%;height: 100%;display:none;position:absolute;background:rgba(0,0,0,0);z-index:998;">
+      <div class="modalData" id="modalBuy" style="display:none;">
+        <div class="modal--head">
+          <div class="modal--row">
+            Moechtest du dieses Fahrzeug kaufen fuer $<a style="text-decoration:none;color:white" id="buyModalMoney"></a>?
+          </div>
+          <div class="modal--row">
+            <div class="modal--buy-accept" onclick="buyModalAccept();"><div class="modal--buy-accept-text">Ja</div></div>
+            <div class="modal--buy-decline" onclick="buyModalDecline();"><div class="modal--buy-decline-text">Nein</div></div>
+          </div>
+          <div id="buyModalInfo" style="display:none;"></div>
+          <div id="buyModalModelId" style="display:none;"></div>
+        </div>
+      </div>
+      <div class="modalData" id="modalData" style="display:none;">
+        <div class="modal--head">
+          <div class="modal--head-left">
+            <img src="" id="modal--head-carimage">
+            <div class="modal--row row-buy">
+              <div class="modal--row-left">
+                <div class="modal--close" onclick="modalInfoBuy();"><div class="modal--close-text">Kaufen</div></div>
+                <div id="modalDataModelId" style="display:none;"></div>
+                <div id="modalDataModelPrice" style="display:none;"></div>
+              </div>
+              <div class="modal--row-right">
+                <div class="modal--close" onclick="modalClose();"><div class="modal--close-text">Schliessen</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="modal--head-right">
+            <h1 id="modal--head-carname"></h1>
+            <div class="modal--row">
+              <div class="modal--row-left">Sparte:</div>
+              <div class="modal--row-right" id="modal-sparte"></div>
+            </div>
+            <div class="modal--row">
+              <div class="modal--row-left">Sitzplaetze:</div>
+              <div class="modal--row-right" id="modal-sitzplatz"></div>
+            </div>
+            <div class="modal--row">
+              <div class="modal--row-left">Kofferraum:</div>
+              <div class="modal--row-right" id="modal-kofferraum"></div>
+            </div>
+            <div class="modal--row">
+              <div class="modal--row-left">Tankvolumen:</div>
+              <div class="modal--row-right" id="modal-tankvolumen"></div>
+            </div>
+            <div class="modal--row">
+              <div class="modal--row-left">Verbrauch:</div>
+              <div class="modal--row-right" id="modal-verbrauch"></div>
+            </div>
+            <div class="modal--row">
+              <div class="modal--row-left">Treibstoff:</div>
+              <div class="modal--row-right" id="modal-treibstoff"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal--body">
+        </div>
+      </div>
+    </div>
+    <div class="wrapper--left">
+      <div class="left--button" onclick="changeCat('gebraucht');"><div class="left--button-text">Gebrauchtwagen</div></div>
+      <div class="left--button" onclick="changeCat('neu');"><div class="left--button-text">Neuwagen</div></div>
+      <div class="left--button" onclick="changeCat('bike');"><div class="left--button-text">Motorraeder</div></div>
+      <div class="left--button" onclick="closeBrowser();"><div class="left--button-text">Schliessen</div></div>
+    </div>
+    <div class="wrapper--right">
+      <div id="cat--gebraucht" class="wrapper--right-inner">
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(Blista,6920);" style="background: url('images/Blista.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$6920</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Blista Compact</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(2859047862,9630);" style="background: url('images/2859047862.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$9630</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Bodhi</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(3863274624,4630);" style="background: url('images/3863274624.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$4630</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Panto</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(2485144969,7830);" style="background: url('images/2485144969.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$7830</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Asea</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(2411965148,999);" style="background: url('images/2411965148.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$999</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Rostiger Emperor</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(3306466016,7620);" style="background: url('images/3306466016.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$7620</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Cheburek</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(1762279763,799);" style="background: url('images/1762279763.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$799</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Rostiger Tornado</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(2983726598,1099);" style="background: url('images/2983726598.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$1099</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Rostiger Surfer</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(3087195462,1299);" style="background: url('images/3087195462.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$1299</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Rostiger Rebel</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="cat--neu" class="wrapper--right-inner" style="display: none;">
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(2166734073,11790);" style="background: url('images/2166734073.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$11790</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Blazer</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(3164157193,15000);" style="background: url('images/3164157193.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$15000</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Dilettante</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(3117103977,10500);" style="background: url('images/3117103977.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$10500</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Issi</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(2844316578,15900);" style="background: url('images/2844316578.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$15900</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Prairie</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(841808271,33000);" style="background: url('images/841808271.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$33000</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Rhapsody</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(Asterope,16550);" style="background: url('images/Asterope.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$16550</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Asterope</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(3609690755,23700);" style="background: url('images/3609690755.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$23700</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Emperor</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(Ingot,7000);" style="background: url('images/30052405074.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$7000</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Ingot</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(Intruder,29700);" style="background: url('images/Intruder.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$29700</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Intruder</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(Premier,21750);" style="background: url('images/Premier.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$21750</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Premier</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(Regina,5800);" style="background: url('images/Regina.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$5800</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Regina</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(Stanier,21750);" style="background: url('images/Stanier.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$21750</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Stanier</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(Stratum,21750);" style="background: url('images/Stratum.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$21750</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Stratum</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(Surge,16500);" style="background: url('images/Surge.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$16500</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Surge</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(1039032026,24000);" style="background: url('images/1039032026.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$24000</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Blista Sport</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(699456151,18000);" style="background: url('images/699456151.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$18000</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Surfer</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(3783366066,55850);" style="background: url('images/3783366066.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$55850</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Oracle</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(223258115,29900);" style="background: url('images/223258115.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$29900</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Sabre GT2</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(3945366167,12630);" style="background: url('images/3945366167.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$12630</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Bifta</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="cat--bike" class="wrapper--right-inner" style="display: none;">
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(1873600305,599);" style="background: url('images/1873600305.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$599</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Rostiges Ratbike</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(2154536131,20400);" style="background: url('images/2154536131.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$20400</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Bagger</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(3724934023,24650);" style="background: url('images/3724934023.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$24650</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Zombie Chopper</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(3285698347,27030);" style="background: url('images/3285698347.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$27030</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Zombie Bopper</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(2035069708,20400);" style="background: url('images/2035069708.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$20400</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Esskey</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(627535535,29070);" style="background: url('images/627535535.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$29070</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">FCR 1000</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right--row">
+          <div class="right--row-item" onclick="showModal(390201602,28050);" style="background: url('images/390201602.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$28050</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Cliffhanger</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(2890830793,18870);" style="background: url('images/2890830793.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$18870</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Deamon Custom</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+          <div class="right--row-item" onclick="showModal(2841686334,12410);" style="background: url('images/2841686334.jpg');background-size:cover;">
+            <div class="right--row-item--top">
+              <div class="item--top-text">$12410</div>
+            </div>
+            <div class="right--row-item--bottom">
+              <div class="item--bottom-left">Sanchez</div>
+              <div class="item--bottom-right">
+                <img src="images/details.png" class="item--bottom-icon" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

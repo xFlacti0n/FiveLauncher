@@ -1,0 +1,665 @@
+<body class="no-select">
+
+<link href="style.css" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+<div class="topline"></div>
+<div class="head">
+        <div class="text">Dopplepeace, <span id="name">Joshua Gerke</span> Erstelle deinen eigenen Charakter ;)</div>
+</div>
+
+<div class="subline1">
+        <ul class="menu">
+                <li class="menu-item" id="catID1" onclick="switchSite('hairClass', this)"><div>Haare</div><img class="icon" src="img/hair.png"></li>
+                <li class="menu-item" id="catID2" onclick="switchSite('faceClass', this)"><div>Gesicht</div><img class="icon" src="img/head.png"></li>
+                <li class="menu-item" id="catID3" onclick="switchSite('face2Class', this)"><div>Details</div><img class="icon" src="img/ear.png"></li>
+                <li class="menu-item" id="catID4" onclick="switchSite('bodyClass', this)"><div>K&ouml;rper</div><img class="icon" src="img/body.png"></li>
+        </ul>
+</div>
+
+<div id="box">
+        <div id="hairClass" name="hairClass" class="hair">
+                <ul class="menubox">
+                        <div class="faceshape" style="width: 2vw;">Haare</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="Drawable" onchange="setHair();" type="range" name="auswertung" min="0" step="1" max="73" value="0" class="slider"><div class="modell2">Aussehen:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="Texture" onchange="setHairColor();" type="range" name="auswertung" step="1" min="0" max="63" value="0" class="slider"><div class="modell2">Farbe 1:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="HairColor2" onchange="setHairColor();" type="range" name="auswertung" min="0" step="1" max="63" value="0" class="slider"><div class="modell2">Farbe 2:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 1.6vw;">Bart</div>
+
+                        <div class="nose-pegel1">
+                                <label class="container">Bart
+                                        <input id="BeardOpacity" onchange="setHeadOverlay('Beard', 1);" type="checkbox">
+                                        <span class="checkmark"></span>
+                                </label>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="BeardIndex" onchange="setHeadOverlay('Beard', 1);" type="range" name="auswertung" min="0" max="28" step="1" value="0" class="slider"><div class="modell2">Aussehen:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="BeardColor" onchange="setHeadOverlay('Beard', 1);" type="range" name="auswertung" min="0" max="28" step="1" value="0" class="slider"><div class="modell2">Farbe 1:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="BeardSecondaryColor" onchange="setHeadOverlay('Beard', 1);" type="range" name="auswertung" min="0" max="28" step="1" value="0" class="slider"><div class="modell2">Farbe 2:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 3.25vw;">Brusthaar</div>
+
+                        <div class="nose-pegel1">
+                                <label class="container">Brusthaare
+                                        <input id="ChestOpacity" onchange="setHeadOverlay('Chest', 10);" type="checkbox">
+                                        <span class="checkmark"></span>
+                                </label>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="ChestIndex" onchange="setHeadOverlay('Chest', 10);" type="range" name="auswertung" min="0" max="16" step="1" value="0" class="slider"><div class="modell2">Aussehen:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="ChestColor" onchange="setHeadOverlay('Chest', 10);" type="range" name="auswertung" min="0" max="16" step="1" value="0" class="slider"><div class="modell2">Farbe 1:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="ChestSecondaryColor" onchange="setHeadOverlay('Chest', 10);" type="range" name="auswertung" min="0" max="16" step="1" value="0" class="slider"><div class="modell2">Farbe 2:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 4vw;">Augenbrauen</div>
+
+                        <div class="nose-pegel1">
+                                <label class="container">Augenbrauen
+                                        <input id="EyeBrowsOpacity" onchange="setHeadOverlay('EyeBrows', 2);" type="checkbox">
+                                        <span class="checkmark"></span>
+                                </label>
+                        </div>
+
+                        <div class="ab">
+                                <div class="nose-pegel1">
+                                        <form oninput="numerisch.value=auswertung.value">
+                                                <input id="EyeBrowsIndex" onchange="setHeadOverlay('EyeBrows', 2);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Aussehen:</div>
+                                                <output name="numerisch" class="number2">0</output>
+                                        </form>
+                                </div>
+
+                                <div class="nose-pegel1">
+                                        <form oninput="numerisch.value=auswertung.value">
+                                                <input id="EyeBrowsColor" onchange="setHeadOverlay('EyeBrows', 2);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Farbe 1:</div>
+                                                <output name="numerisch" class="number2">0</output>
+                                        </form>
+                                </div>
+
+                                <div class="nose-pegel1">
+                                        <form oninput="numerisch.value=auswertung.value">
+                                                <input id="EyeBrowsSecondaryColor" onchange="setHeadOverlay('EyeBrows', 2);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Farbe 2:</div>
+                                                <output name="numerisch" class="number2">0</output>
+                                        </form>
+                                </div>
+                        </div>
+                </ul>
+        </div>
+
+        <div id="faceClass" name="faceClass" class="face hidden">
+                <ul class="menubox">
+                        <div class="faceshape" style="width: 1.6vw">Form</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="shapevater" onchange="setBlendData()" type="range" name="auswertung" min="0" step="1" max="45" value="0" class="slider"><div class="modell2">Vater:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="shapemutter" onchange="setBlendData()" type="range" name="auswertung" step="1" min="0" max="45" value="31" class="slider"><div class="modell2">Mutter:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="shapemix" onchange="setBlendData()" type="range" name="auswertung" min="0" step="1" max="100" value="0" class="slider"><div class="modell2">Mix:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 2.5vw;">Rötung</div>
+
+                        <div class="nose-pegel1">
+                                <label class="container">Rötung
+                                        <input id="BlushOpacity" onchange="setHeadOverlay('Blush', 5);" type="checkbox">
+                                        <span class="checkmark"></span>
+                                </label>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="BlushIndex" onchange="setHeadOverlay('Blush', 5);" type="range" name="auswertung" min="0" max="6" step="1" value="0" class="slider"><div class="modell2">Aussehen:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="BlushColor" onchange="setHeadOverlay('Blush', 5);" type="range" name="auswertung" min="0" max="6" step="1" value="0" class="slider"><div class="modell2">Farbe 1:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="BlushSecondaryColor" onchange="setHeadOverlay('Blush', 5);" type="range" name="auswertung" min="0" max="6" step="1" value="0" class="slider"><div class="modell2">Farbe 2:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 2.75vw;">Make-Up</div>
+
+                        <div class="nose-pegel1">
+                                <label class="container">Makeup
+                                        <input id="MakeupOpacity" onchange="setHeadOverlay('Makeup', 4);" type="checkbox" >
+                                        <span class="checkmark"></span>
+                                </label>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="MakeupIndex" onchange="setHeadOverlay('Makeup', 4);" type="range" name="auswertung" min="0" max="74" step="1" value="0" class="slider"><div class="modell2">Aussehen:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="MakeupColor" onchange="setHeadOverlay('Makeup', 4);" type="range" name="auswertung" min="0" max="74" step="1" value="0" class="slider"><div class="modell2">Farbe 1:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="MakeupSecondaryColor" onchange="setHeadOverlay('Makeup', 4);" type="range" name="auswertung" min="0" max="74" step="1" value="0" class="slider"><div class="modell2">Farbe 2:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 3.5vw;">Lippenstift</div>
+
+                        <div class="nose-pegel1">
+                                <label class="container">Lippenstift
+                                        <input id="LipstickOpacity" onchange="setHeadOverlay('Lipstick', 8);" type="checkbox" >
+                                        <span class="checkmark"></span>
+                                </label>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="LipstickIndex" onchange="setHeadOverlay('Lipstick', 8);" type="range" name="auswertung" min="0" max="9" step="1" value="0" class="slider"><div class="modell2">Aussehen:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="LipstickColor" onchange="setHeadOverlay('Lipstick', 8);" type="range" name="auswertung" min="0" max="9" step="1" value="0" class="slider"><div class="modell2">Farbe 1:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="LipstickSecondaryColor" onchange="setHeadOverlay('Lipstick', 8);" type="range" name="auswertung" min="0" max="9" step="1" value="0" class="slider"><div class="modell2">Farbe 2:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                </ul>
+        </div>
+
+        <div id="face2Class" name="face2Class" class="face2 hidden">
+                <ul class="menubox">
+                        <div class="faceshape">Nase</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="noseTip" onchange="setFaceFeature('noseTip', 4);" type="range" name="auswertung" min="-1" step="0.1" max="1" value="0" class="slider"><div class="modell2">Breite:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="noseHeight" onchange="setFaceFeature('noseHeight', 1);" type="range" name="auswertung" step="0.1" min="-1" max="1" value="0" class="slider"><div class="modell2">H&ouml;he:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="noseLength" onchange="setFaceFeature('noseLength', 2);" type="range" name="auswertung" min="-1" step="0.1" max="1" value="0" class="slider"><div class="modell2">L&auml;nge:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="noseBridge" onchange="setFaceFeature('noseBridge', 3);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">R&uuml;cken:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="noseShift" onchange="setFaceFeature('noseShift', 5);"  type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Versch.:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <!--<div class="nose-pegel1">
+                        <form oninput="numerisch.value=auswertung.value">
+                        <input type="range" name="auswertung" min="0" max="100,001" value="0" class="slider"><div class="modell2">Mix:</div>
+                        <output name="numerisch" class="number2">0</output>
+                        </form>
+                        </div> -->
+
+                        <div class="faceshape" style="width: 4vw;">Augen-Braue</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="browHeight" onchange="setFaceFeature('browHeight', 6);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">H&ouml;he:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="browWidth" onchange="setFaceFeature('browWidth', 7);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Breite:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 2.5vw;">Wangen</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="cheekboneHeight" onchange="setFaceFeature('cheekboneHeight', 8);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Kn.-H&ouml;he:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="cheekboneWidth" onchange="setFaceFeature('cheekboneWidth', 9);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Kn.-Breite:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="cheeksWidth" onchange="setFaceFeature('cheeksWidth', 10);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">W.-Breite:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 2.5vw;">Augen</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="eyes" onchange="setFaceFeature('eyes', 11);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Modell:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 2.5vw;">Lippen</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="lips" onchange="setFaceFeature('lips', 12);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Modell:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 2.5vw;">Kiefer</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="jawWidth" onchange="setFaceFeature('jawWidth', 13);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Breite:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="jawHeight" onchange="setFaceFeature('jawHeight', 14);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">H&ouml;he:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 2.5vw;">Kinn</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="chinLength" onchange="setFaceFeature('chinLength', 15);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">L&auml;nge:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="chinPosition" onchange="setFaceFeature('chinPosition', 16);" type="range" name="auswertung" min="0" max="1" step="0.1" value="0" class="slider"><div class="modell2">Position:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="chinWidth" onchange="setFaceFeature('chinWidth', 17);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Breite:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="chinShape" onchange="setFaceFeature('chinShape', 18);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Form:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="faceshape" style="width: 2.5vw;">Nacken</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="neckWidth" onchange="setFaceFeature('neckWidth', 19);" type="range" name="auswertung" min="-1" max="1" step="0.1" value="0" class="slider"><div class="modell2">Breite:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                </ul>
+        </div>
+
+        <div id="bodyClass" name="bodyClass" class="body hidden">
+                <ul class="menubox">
+                        <div class="faceshape" style="width: 3.25vw;">Hautfarbe</div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="skinvater" onchange="setBlendData();" type="range" name="auswertung" min="0" step="1" max="40" value="0" class="slider"><div class="modell2">Vater:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="skinmutter" onchange="setBlendData();" type="range" name="auswertung" step="1" min="0" max="40" value="0" class="slider"><div class="modell2">Mutter:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+
+                        <div class="nose-pegel1">
+                                <form oninput="numerisch.value=auswertung.value">
+                                        <input id="skinmix" onchange="setBlendData();" type="range" name="auswertung" min="0" step="1" max="100" value="0" class="slider"><div class="modell2">Mix:</div>
+                                        <output name="numerisch" class="number2">0</output>
+                                </form>
+                        </div>
+                </ul>
+        </div>
+</div>
+
+<div class="subline2">
+        <ul class="menu">
+                <li class="menu-item-2" id="catID1" style="display: none;"><div>Weiblich</div><img class="icon" src="img/woman.png" style="width:2.46vw"></li>
+                <li class="menu-item-2" id="catID2"><div>Männlich</div><img class="icon" src="img/man.png"></li>
+        </ul>
+</div>
+
+</div>
+
+<div id="box2">
+        <ul class="finishedchars">
+                <li class="finisheditem" onclick="selectThis(0)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(1)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(2)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(3)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(4)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(5)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(6)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(7)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(8)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(9)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(10)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(11)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(12)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(13)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(14)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(15)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(16)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(17)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(18)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(19)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(20)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+                <li class="finisheditem" onclick="selectThis(21)"><img class="finishedimg" src="img/58px-Acult01AMO.png"></li>
+        </ul>
+</div>
+
+<div class="accept" onclick="onClick();"><div class="accepttext">Best&auml;tigen</div></div>
+<div class="skew1"><img class="moveLeft" onclick="moveLeft();" src="img/arrow.png"></div>
+<div class="skew2"><img class="moveRight" onclick="moveRight();" src="img/arrow.png"></div>
+
+</body>
+
+<script>
+
+        var lastClass = "hairClass";
+
+        var lastItemName = "";
+        var lastItemSrc = "";
+
+        function switchSite(site, object) {
+                if (site !== lastClass) {
+                        var givenClass = document.getElementsByName(site)[0];
+                        givenClass.classList.remove("hidden");
+                        document.getElementsByName(lastClass)[0].classList.toggle("hidden");
+                        lastClass = site;
+                }
+
+                $('#catID1').removeClass('active');
+                $('#catID2').removeClass('active');
+                $('#catID3').removeClass('active');
+                $('#catID4').removeClass('active');
+
+                $(object).addClass('active');
+
+
+        }
+
+        function ProvideStuff(username) {
+                document.getElementById("name").innerHTML = username;
+        }
+
+        function setBlendData() {
+                //mp.players.local.setHeadBlendData(shapeFirstID, shapeSecondID, shapeThirdID, skinFirstID, skinSecondID, skinThirdID, shapeMix, skinMix, thirdMix, isParent);
+                mp.trigger("setHeadBlend",
+                        document.getElementById("shapevater").value,
+                        document.getElementById("shapemutter").value,
+                        0,
+                        document.getElementById("skinvater").value,
+                        document.getElementById("skinmutter").value,
+                        0,
+                        document.getElementById("shapemix").value,
+                        document.getElementById("skinmix").value,
+                        0,
+                        false
+                );
+        }
+
+        function setFaceFeature(valueid, index) {
+                // -1 min + 1 max except for index 16
+                var scale = document.getElementById(valueid).value;
+                console.log(scale);
+                mp.trigger("setFaceF", index, scale);
+        }
+
+        function setHair() {
+                var drawable = document.getElementById("Drawable").value;
+                mp.trigger("setPClothes", drawable, 0, 0);
+        }
+
+        function setHairColor() {
+                var color = document.getElementById("Texture").value;
+                var color2 = document.getElementById("HairColor2").value;
+
+                mp.trigger("setPHColor", color, color2);
+        }
+
+        function setHeadOverlay(mainValue, overlayID) {
+                var index = document.getElementById(mainValue + "Index").value;
+                var opacity = document.getElementById(mainValue + "Opacity").value;
+                var firstColor = document.getElementById(mainValue + "Color").value;
+                var secondColor = document.getElementById(mainValue + "SecondaryColor").value;
+
+                console.log(index + " " + opacity + " " + firstColor + " " + secondColor);
+                mp.trigger("setHOverlay", overlayID, index, opacity, firstColor, secondColor);
+        }
+
+        function parseOpacity(elementid) {
+                var box = document.getElementById(elementid);
+                if (box.checked) {
+                        return 255;
+                }
+                else {
+                        return -1;
+                }
+        }
+
+        function onClick(){
+                var Face = new Object();
+                var faceFeatures = new Object();
+
+
+                Face = {};
+                Face.face = {};
+                Face.Beard = {};
+                Face.Chest = {};
+                Face.EyeBrows = {};
+                Face.Blush = {};
+                Face.Lipstick = {};
+                Face.Hair = {};
+                Face.Makeup = {};
+                FaceFeatures = {};
+
+
+                Face.face['ShapeFirst'] = document.getElementById("shapevater").value;
+                Face.face['ShapeSecond'] = document.getElementById("shapemutter").value;
+                Face.face['ShapeThird'] = 0;
+                Face.face['SkinFirst'] = document.getElementById("skinvater").value;
+                Face.face['SkinSecond'] = document.getElementById("skinmutter").value;
+                Face.face['SkinThird'] = 0;
+                Face.face['ShapeMix'] = document.getElementById("shapemix").value;
+                Face.face['SkinMix'] = document.getElementById("skinmix").value;
+                Face.face['ThirdMix'] = 0;
+
+                Face.Beard['Index'] = document.getElementById("BeardIndex").value;
+                Face.Beard['Opacity'] = parseOpacity("BeardOpacity");
+                Face.Beard['Color'] = document.getElementById("BeardColor").value;
+                Face.Beard['SecondaryColor'] = document.getElementById("BeardSecondaryColor").value;
+
+                Face.Chest['Index'] = document.getElementById("ChestIndex").value;
+                Face.Chest['Opacity'] = parseOpacity("ChestOpacity");
+                Face.Chest['Color'] = document.getElementById("ChestColor").value;
+                Face.Chest['SecondaryColor'] = document.getElementById("ChestSecondaryColor").value;
+
+                Face.EyeBrows['Index'] = document.getElementById("EyeBrowsIndex").value;
+                Face.EyeBrows['Opacity'] = parseOpacity("EyeBrowsOpacity");
+                Face.EyeBrows['Color'] = document.getElementById("EyeBrowsColor").value;
+                Face.EyeBrows['SecondaryColor'] = document.getElementById("EyeBrowsSecondaryColor").value;
+
+                Face.Blush['Index'] = document.getElementById("BlushIndex").value;
+                Face.Blush['Opacity'] = parseOpacity("BlushOpacity");
+                Face.Blush['Color'] = document.getElementById("BlushColor").value;
+                Face.Blush['SecondaryColor'] = document.getElementById("BlushSecondaryColor").value;
+
+                Face.Makeup['Index'] = document.getElementById("MakeupIndex").value;
+                Face.Makeup['Opacity'] = parseOpacity("MakeupOpacity");
+                Face.Makeup['Color'] = document.getElementById("MakeupColor").value;
+                Face.Makeup['SecondaryColor'] = document.getElementById("MakeupSecondaryColor").value;
+
+                Face.Lipstick['Index'] = document.getElementById("LipstickIndex").value;
+                Face.Lipstick['Opacity'] = parseOpacity("LipstickOpacity");
+                Face.Lipstick['Color'] = document.getElementById("LipstickColor").value;
+                Face.Lipstick['SecondaryColor'] = document.getElementById("LipstickSecondaryColor").value;
+
+                Face.Hair['Drawable'] = document.getElementById("Drawable").value;
+                Face.Hair['Texture'] = document.getElementById("Texture").value;
+
+                Face['HairColor2'] = document.getElementById("HairColor2").value;
+                Face['EyeColor2'] = 0;
+
+                FaceFeatures['noiseWidth'] = 0.0;
+                FaceFeatures['chinPosition'] = document.getElementById("chinPosition").value;
+                FaceFeatures['chinLength'] = document.getElementById("chinLength").value;
+                FaceFeatures['neckWidth'] = document.getElementById("neckWidth").value;
+                FaceFeatures['chinWidth'] = document.getElementById("chinWidth").value;
+                FaceFeatures['chinShape'] = document.getElementById("chinShape").value;
+                FaceFeatures['jawHeight'] = document.getElementById("jawHeight").value;
+                FaceFeatures['jawWidth'] = document.getElementById("jawWidth").value;
+                FaceFeatures['lips'] = document.getElementById("lips").value;
+                FaceFeatures['eyes'] = document.getElementById("eyes").value;
+                FaceFeatures['cheeksWidth'] = document.getElementById("cheeksWidth").value;
+                FaceFeatures['cheekboneWidth'] = document.getElementById("cheekboneWidth").value;
+                FaceFeatures['cheekboneHeight'] = document.getElementById("cheekboneHeight").value;
+                FaceFeatures['browWidth'] = document.getElementById("browWidth").value;
+                FaceFeatures['browHeight'] = document.getElementById("browHeight").value;
+                FaceFeatures['noseShift'] = document.getElementById("noseShift").value;
+                FaceFeatures['noseTip'] = document.getElementById("noseTip").value;
+                FaceFeatures['noseBridge'] = document.getElementById("noseBridge").value;
+                FaceFeatures['noseLength'] = document.getElementById("noseLength").value;
+                FaceFeatures['noseHeight'] = document.getElementById("noseHeight").value;
+
+                console.log(JSON.stringify(Face, null, "\t"));
+                console.log(JSON.stringify(FaceFeatures, null, "\t"));
+
+                mp.trigger('setFaceOnSRV', JSON.stringify(Face), JSON.stringify(FaceFeatures));
+        }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

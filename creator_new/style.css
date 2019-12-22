@@ -1,0 +1,647 @@
+@font-face {
+	font-family: 'OSB';
+	src: url('../fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OSE';
+	src: url('../fonts/OpenSans-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OSL';
+	src: url('../fonts/OpenSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OSR';
+	src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OSS';
+	src: url('../fonts/OpenSans-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'BNT';
+	src: url('../fonts/bnt.ttf') format('truetype');
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+
+/* Firefox < 16 */
+
+@-moz-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+
+/* Safari, Chrome and Opera > 12.1 */
+
+@-webkit-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+
+/* Internet Explorer */
+
+@-ms-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+
+/* Opera < 12.1 */
+
+@-o-keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+body {
+	background: url(../bg3.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	-webkit-animation: fadein 2s;
+	/* Safari, Chrome and Opera > 12.1 */
+	-moz-animation: fadein 2s;
+	/* Firefox < 16 */
+	-ms-animation: fadein 2s;
+	/* Internet Explorer */
+	-o-animation: fadein 2s;
+	/* Opera < 12.1 */
+	animation: fadein 2s;
+	position: inherit;
+}
+
+.dreieck {
+	width: 0;
+	height: 0;
+	border-left: 0px solid transparent;
+	border-right: 0.6vw solid transparent;
+	border-bottom: 0.6vw solid #09eb94;
+	transform: rotate(180deg);
+	right: 0.2vw;
+	position: absolute;
+	top: 0.2vw;
+}
+
+* {
+	font-family: 'BNT';
+}
+
+.head {
+	width: 92vw;
+	height: 5vw;
+	position: absolute;
+	left: 3.5vw;
+	top: 3vw;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.topline {
+	background-color: rgb(0, 236, 144);
+	position: absolute;
+	width: 88vw;
+	height: 2vw;
+	margin-left: 5vw;
+	margin-right: 10vw;
+	top: -1.6vw;
+	border-radius: 1vw;
+}
+
+.subline1 {
+	width: 20vw;
+	height: 6vw;
+	position: absolute;
+	left: 3.5vw;
+	top: 9vw;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+#box {
+	position: absolute;
+	top: 15vw;
+	width: 20vw;
+	left: 3.5vw;
+	height: 33vw;
+	color: rgb(255, 255, 255);
+	background: rgba(0, 0, 0, 0.4);
+	overflow: auto;
+}
+
+.subline2 {
+	width: 20vw;
+	height: 6vw;
+	position: absolute;
+	right: 4.5vw;
+	top: 9vw;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+#box2 {
+	position: absolute;
+	top: 15vw;
+	width: 20vw;
+	right: 4.5vw;
+	height: 33vw;
+	color: rgb(255, 255, 255);
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.menu {
+	display: block;
+	list-style-type: none;
+	/* margin-block-start: 0vw; */
+	/* margin-block-end: 0vw; */
+	/* margin-inline-start: 0px; */
+	/* margin-inline-end: 0px; */
+	/* padding-inline-start: 0px; */
+	color: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	left: -1.5vw;
+	top: 0.2vw;
+	width: 20vw;
+}
+
+.menu-item {
+	float: left;
+	margin-right: 0.8vw;
+	font-size: 1vw;
+	transition: 0.2s;
+	background: #00ec90;
+	padding: 0.25vw;
+	padding-left: 0.5vw;
+	padding-right: 0.5vw;
+	margin-left: 0.45vw;
+}
+
+.menu-item-2 {
+	float: left;
+	margin-right: 0.8vw;
+	font-size: 1vw;
+	transition: 0.2s;
+	background: #00ec90;
+	padding: 0.25vw;
+	padding-left: 2.5vw;
+	padding-right: 2.5vw;
+	margin-left: 0.9vw;
+	width: 12vw;
+	text-align: center;
+}
+
+.text {
+	color: #fff;
+	position: absolute;
+	right: 1vw;
+	font-size: 1.5vw;
+	width: 19vw;
+	top: 0.75vw;
+}
+
+#name {
+	color: rgb(0, 236, 144);
+}
+
+.menu-item:hover {
+	cursor: pointer;
+	color: #000;
+	transform: scale(1.02);
+}
+
+.menu-item:active {
+	color: rgb(0, 236, 144);
+}
+
+.hidden {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.menubox {
+	display: block;
+	list-style-type: none;
+	/* margin-block-start: 0vw; */
+	/* margin-block-end: 0vw; */
+	/* margin-inline-start: 0vw; */
+	/* margin-inline-end: 0vw; */
+	/* padding-inline-start: 0vw; */
+	position: absolute;
+	left: -1vw;
+	top: 1vw;
+}
+
+.hairitem {
+	font-size: 0.7vw;
+	margin-bottom: 0.5vw;
+	font-family: 'OSR';
+	background: rgba(0, 0, 0, 0.3);
+	margin-left: -1vw;
+	padding: 0.25vw;
+	padding-left: 1vw;
+	width: 10vw;
+}
+
+.faceitem {
+	font-size: 1vw;
+	margin-bottom: 0.7vw;
+	background: rgba(0, 0, 0, 0.2);
+	position: relative;
+	left: -1vw;
+	padding-left: 1vw;
+	padding-top: 0.3vw;
+	padding-bottom: 0.3vw;
+}
+
+.hairitem-pegel {}
+
+.modell {
+	font-size: 0.5vw;
+	top: -0.6vw;
+	right: -14.7vw;
+	position: relative;
+	text-align: right;
+	letter-spacing: 1.5vw;
+	color: #00ec90;
+	width: 0vw;
+}
+
+.number {
+	position: relative;
+	right: -15.56vw;
+	font-size: 1.25vw;
+	top: -1.45vw;
+	text-align: center;
+}
+
+.slider {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 12vw;
+	height: 0.3vw;
+	background: rgba(255, 255, 255, 0.2);
+	outline: none;
+	opacity: 1;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 1vw;
+	height: 0.5vw;
+	background: rgb(0, 236, 144);
+	cursor: pointer;
+}
+
+.hairitem-pegel2 .number,
+.hairitem-pegel2 .modell {
+	top: 5.75vw;
+}
+
+.hairitem-pegel3 .number,
+.hairitem-pegel3 .modell {
+	top: 9.4vw;
+}
+
+.faceitem-pegel .number,
+.faceitem-pegel .modell {
+	top: 4.5vw;
+}
+
+.faceitem-pegel2 .number,
+.faceitem-pegel2 .modell {
+	top: 8.2vw;
+}
+
+.faceitem-pegel3 .number,
+.faceitem-pegel3 .modell {
+	top: 11.9vw;
+}
+
+.faceitem-pegel4 .number,
+.faceitem-pegel4 .modell {
+	top: 20.4vw;
+}
+
+.faceitem-pegel5 .number,
+.faceitem-pegel5 .modell {
+	top: 24vw;
+}
+
+.faceitem-pegel6 .number,
+.faceitem-pegel6 .modell {
+	top: 27.75vw;
+}
+
+.nose-pegel1 .number,
+.nose-pegel1 .modell {
+	top: 27.75vw;
+}
+
+.faceshape {
+	background: rgb(0, 236, 144);
+	width: 1.5vw;
+	font-size: 1vw;
+	padding-left: 1vw;
+	padding-right: 1vw;
+	padding-top: 0.2vw;
+	padding-bottom: 0.2vw;
+	margin-bottom: 1vw;
+	cursor: default;
+	color: #000;
+}
+
+.faceshape2 {
+	background: rgb(0, 236, 144);
+	width: 1.5vw;
+	font-size: 1vw;
+	padding-left: 1vw;
+	padding-right: 1vw;
+	padding-top: 0.2vw;
+	padding-bottom: 0.2vw;
+	margin-bottom: 1vw;
+	margin-top: 3vw;
+	cursor: default;
+	color: #000;
+}
+
+.no-select {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.modell2 {
+	font-size: 1vw;
+	position: relative;
+	left: 12.4vw;
+	margin-bottom: -2vw;
+	top: -0.76vw;
+	margin-right: 12vw;
+}
+
+.number2 {
+	font-size: 1vw;
+	position: relative;
+	left: 17vw;
+	margin-bottom: -1vw;
+	top: 0.15vw;
+}
+
+::-webkit-scrollbar {
+	width: 0.3vw;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #00ec90;
+}
+
+.accept {
+	width: 13vw;
+	height: 3vw;
+	background: rgb(0, 236, 144);
+	position: absolute;
+	bottom: 2vw;
+	transform: skew(-40deg);
+	left: 43vw;
+	transition: 0.2s;
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+.accepttext {
+	transform: skew(40deg);
+	position: absolute;
+	font-size: 1.5vw;
+	top: 0.6vw;
+	left: 3.5vw;
+	transition: 0.2s;
+	cursor: pointer;
+}
+
+.accept:hover {
+	transform: scale(1.02) skew(-40deg);
+	opacity: 1;
+}
+
+.active {
+	transform: scale(1.1);
+}
+
+.check {
+	font-size: 1.25vw;
+}
+
+.checkbox {}
+
+
+/* Customize the label (the container) */
+
+.container {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	width: 0vw;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.container input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.container:hover input~.checkmark {
+	background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.container input:checked~.checkmark {
+	background-color: #00ec90;
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.container input:checked~.checkmark:after {
+	display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.container .checkmark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.money1 {}
+
+.money2 {}
+
+.moveLeft {
+	transform: skew(40deg) rotate(90deg) scaleX(-1);
+	position: absolute;
+	top: 0.8vw;
+	left: 1.25vw;
+}
+
+.moveRight {
+	transform: skew(40deg) rotate(-90deg);
+	position: absolute;
+	top: 0.8vw;
+	left: 1.25vw;
+}
+
+.skew1:hover {
+	transform: scale(1.05) skew(-40deg);
+	opacity: 1;
+}
+
+.skew2:hover {
+	transform: scale(1.05) skew(-40deg);
+	opacity: 1;
+}
+
+.skew1 {
+	width: 4vw;
+	height: 3vw;
+	background: rgb(0, 236, 144);
+	position: absolute;
+	transform: skew(-40deg);
+	left: 38vw;
+	transition: 0.2s;
+	cursor: pointer;
+	opacity: 0.8;
+	bottom: 2vw;
+}
+
+.skew2 {
+	width: 4vw;
+	height: 3vw;
+	background: rgb(0, 236, 144);
+	position: absolute;
+	bottom: 2vw;
+	transform: skew(-40deg);
+	left: 57vw;
+	transition: 0.2s;
+	cursor: pointer;
+	opacity: 0.8;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	height: 0.8vw;
+}
+
+.finishedchars {
+	position: absolute;
+	left: 0vw;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: auto;
+}
+
+.finisheditem {
+	margin: 1vw;
+	display: block;
+	border: 0.1vw solid #00ec90;
+	width: fit-content;
+	float: left;
+	margin-right: 0.5vw;
+	opacity: 0.5;
+	cursor: pointer;
+	transition: 0.25s;
+}
+
+.finisheditem:hover {
+	opacity: 0.75
+}
+
+
+.finishedimg {
+	width: 3vw;
+}
